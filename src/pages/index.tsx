@@ -1,7 +1,8 @@
 import React, { NextPage } from 'next';
+import { Layout } from '@/components';
 
 const HomePage: NextPage = () => {
-  return <div>Welcome to Next.js with Yarn Berry!dasds</div>;
+  return <Layout>Intergal</Layout>;
 };
 
 export default HomePage;
