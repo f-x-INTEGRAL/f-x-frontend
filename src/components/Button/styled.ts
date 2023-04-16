@@ -17,9 +17,8 @@ export const Button = styled.button`
   border-radius: 12px;
   width: 120px;
   height: 50px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
-  &:hover {
-    box-shadow: inset 0 0px 10px rgba(0, 0, 0, 0.5);
+  &:active {
+    box-shadow: inset 0 0px 10px rgba(0, 0, 0, 0.2);
   }
 `;
 
