@@ -4,12 +4,13 @@ import * as S from './styled';
 
 interface MainTitleProps {
   title: string;
+  white?: boolean;
 }
 
-export const MainTitle = ({ title }: MainTitleProps) => {
+export const MainTitle = ({ title, ...props }: MainTitleProps) => {
   return (
     <>
-      <S.MainTitle>{title}</S.MainTitle>
+      <S.MainTitle {...props}>{title}</S.MainTitle>
     </>
   );
 };
