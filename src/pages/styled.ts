@@ -179,9 +179,6 @@ export const MainThirdContainer = styled.div`
 `;
 
 export const FramerWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
 `;
 
@@ -199,10 +196,11 @@ export const InnerCarousel = styled(motion.div)`
 
 export const CarouselItem = styled(motion.div)`
   padding: 2rem;
-  background-color: #62a1f1;
+  margin: 0 1rem;
   width: 300px;
   height: 400px;
 
+  background-color: #62a1f1;
   border-radius: 10px;
   border-right: 1px solid #fff;
 `;
