@@ -5,6 +5,9 @@ export const global = css`
     margin: 0 auto;
     padding: 0;
     font-family: 'SpoqaHanSansNeo-Regular';
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   @font-face {

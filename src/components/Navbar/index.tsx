@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import Logo from '../../assets/images/logo.png';
+import Logo from '@/assets/images/logo.png';
 import * as S from './styled';
 
 export const Navbar = () => {
