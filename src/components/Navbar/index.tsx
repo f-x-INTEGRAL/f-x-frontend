@@ -10,10 +10,10 @@ export const Navbar = () => {
       <S.NavbarMenu>
         <Image src={Logo} alt="Intergal Logo" style={{ cursor: 'pointer' }} />
         <S.NavbarTextMenu>
-          <S.NavbarMenuLink style={{ marginRight: '30px' }}>
+          <S.NavbarMenuLink href="/form" style={{ marginRight: '30px' }}>
             예매 하기
           </S.NavbarMenuLink>
-          <S.NavbarMenuLink>자주 묻는 질문</S.NavbarMenuLink>
+          <S.NavbarMenuLink href="/qna">자주 묻는 질문</S.NavbarMenuLink>
         </S.NavbarTextMenu>
       </S.NavbarMenu>
     </S.NavbarContainer>
