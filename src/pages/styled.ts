@@ -15,12 +15,31 @@ export const MainFirstContainer = styled.div`
   padding: 280px 0 0 0;
 `;
 
+export const SVGContainer = styled.div`
+  position: relative;
+`;
+
+export const SVGGuitarContainer = styled.div`
+  z-index: 2;
+  position: absolute;
+  top: -150px;
+  right: 150px;
+`;
+
+export const SVGDrumContainer = styled.div`
+  z-index: 2;
+  position: absolute;
+  top: -150px;
+  left: 150px;
+`;
+
 export const MainLogoImage = styled(Image)`
   width: 210px;
   height: 180px;
 `;
 
 export const MainMiniTitle = styled.h1`
+  z-index: 5;
   letter-spacing: 0.3em;
   font-size: 2.5rem;
   color: #62a1f1;
@@ -28,15 +47,17 @@ export const MainMiniTitle = styled.h1`
 `;
 
 export const MainSubTitle = styled.p`
+  z-index: 5;
   font-size: 1.2rem;
   font-weight: 600;
   padding: 0 0 20px 0;
 `;
 
 export const MainDescription = styled.p`
+  z-index: 5;
   text-align: center;
   font-size: 1.2rem;
-  color: #abaaaa;
+  color: #757575;
 `;
 
 export const MainLineContainer = styled.div`
@@ -179,47 +200,37 @@ export const MainThirdContainer = styled.div`
   align-items: center;
 `;
 
-export const FramerWrapper = styled.div`
-  width: 100%;
+export const MemberContainer = styled.div`
+  width: 75%;
   padding: 100px 0 0 0;
-`;
-
-export const Carousel = styled(motion.div)`
-  cursor: grab;
-  overflow: hidden;
-  height: 30rem;
-`;
-
-export const InnerCarousel = styled(motion.div)`
   display: flex;
   align-items: center;
-  height: 30rem;
+  flex-wrap: wrap;
 `;
 
-export const CarouselItem = styled(motion.div)`
-  padding: 2rem;
-  margin: 0 1rem;
-  width: 300px;
-  height: 400px;
+export const MemberBox = styled.div`
+  width: 230px;
+  height: 280px;
+  background-color: ${(props) => props.color};
+  border: 3px solid ${(props) => props.color};
+  border-radius: 15px;
+  opacity: 0.8;
 
-  background-color: #62a1f1;
-  border-radius: 10px;
-  border-right: 1px solid #fff;
+  padding: 20px 0 0 20px;
+  margin-bottom: 25px;
+
+  &:hover {
+    opacity: 1;
+  }
 `;
 
-export const CarouselImage = styled(Image)`
-  border-radius: 1rem;
-  pointer-events: none;
-`;
-
-export const CarouselInfo = styled.p`
+export const MemberImage = styled(Image)`
   display: none;
+  position: relative;
+  bottom: 60px;
+  right: 10px;
 
-  ${CarouselItem}:hover & {
+  ${MemberBox}:hover & {
     display: block;
-    font-size: 1.5rem;
-    position: absolute;
-    transition: 0.5s;
-    top: 30px;
   }
 `;
