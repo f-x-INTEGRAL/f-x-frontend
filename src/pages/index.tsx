@@ -11,7 +11,6 @@ import BandImage3 from '@/assets/images/bandImage3.png';
 import BandImage4 from '@/assets/images/bandImage4.png';
 import BandImage5 from '@/assets/images/bandImage5.png';
 import { images } from '@/assets/images';
-import Image from 'next/image';
 
 const HomePage: NextPage = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -24,44 +23,38 @@ const HomePage: NextPage = () => {
       const pageHeight = window.innerHeight;
 
       if (deltaY > 0) {
-        if (scrollTop >= 0 && scrollTop < 800) {
+        if (scrollTop >= 0 && scrollTop < 880) {
           console.log('1 d');
           scrollRef.current?.scrollTo({
-            top: 800,
+            top: 880,
             left: 0,
             behavior: 'smooth',
           });
-        } else if (scrollTop >= 800 && scrollTop < 788 * 2) {
+        } else if (scrollTop >= 850 && scrollTop < 880 * 2) {
           console.log('2 d');
           scrollRef.current?.scrollTo({
-            top: 788 * 2,
+            top: 880 * 2,
             left: 0,
             behavior: 'smooth',
           });
-        } else if (scrollTop >= 788 && scrollTop < 800 * 3) {
+        } else if (scrollTop >= 788 && scrollTop < 860 * 3) {
           console.log('3 d');
           scrollRef.current?.scrollTo({
-            top: 800 * 3,
+            top: 860 * 3,
             left: 0,
             behavior: 'smooth',
           });
-        } else if (scrollTop >= 800 && scrollTop < 855 * 4) {
+        } else if (scrollTop >= 800 && scrollTop < 900 * 4) {
           console.log('4 d');
           scrollRef.current?.scrollTo({
-            top: 855 * 4,
+            top: 900 * 4,
             left: 0,
             behavior: 'smooth',
           });
-        } else if (scrollTop >= 855 && scrollTop < 900 * 5) {
+        } else if (scrollTop >= 855 && scrollTop < 1000 * 5) {
           console.log('5 d');
           scrollRef.current?.scrollTo({
-            top: 900 * 5,
-            left: 0,
-            behavior: 'smooth',
-          });
-        } else {
-          scrollRef.current?.scrollTo({
-            top: 900 * 6,
+            top: 1000 * 5,
             left: 0,
             behavior: 'smooth',
           });
@@ -74,31 +67,31 @@ const HomePage: NextPage = () => {
             left: 0,
             behavior: 'smooth',
           });
-        } else if (scrollTop >= pageHeight && scrollTop < 1588 * 2) {
+        } else if (scrollTop >= pageHeight && scrollTop <= 1760) {
           console.log('2 u');
           scrollRef.current?.scrollTo({
-            top: 800,
+            top: 880,
             left: 0,
             behavior: 'smooth',
           });
-        } else if (scrollTop >= pageHeight && scrollTop < 2388 * 3) {
+        } else if (scrollTop >= 1760 && scrollTop <= 3520) {
           console.log('3 u');
           scrollRef.current?.scrollTo({
-            top: 1575,
+            top: 1760,
             left: 0,
             behavior: 'smooth',
           });
-        } else if (scrollTop >= pageHeight && scrollTop < 4143 * 5) {
+        } else if (scrollTop >= 3520 && scrollTop <= 4400) {
           console.log('4 u');
           scrollRef.current?.scrollTo({
-            top: 2388,
+            top: 1760,
             left: 0,
             behavior: 'smooth',
           });
-        } else {
+        } else if (scrollTop >= 4400 && scrollTop <= 5400) {
           console.log('5 u');
           scrollRef.current?.scrollTo({
-            top: 4143,
+            top: 3600,
             left: 0,
             behavior: 'smooth',
           });

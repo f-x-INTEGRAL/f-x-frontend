@@ -61,6 +61,8 @@ export const TitleContainer = styled.div`
   width: 100%;
   flex-direction: column;
   margin-left: 30px;
+
+  padding: 92px 0 92px 0;
 `;
 
 export const TitleTitle = styled.h1`
@@ -80,7 +82,6 @@ export const MainSecondContainer = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 600px;
 
   background: linear-gradient(
     white,
@@ -180,6 +181,7 @@ export const MainThirdContainer = styled.div`
 
 export const FramerWrapper = styled.div`
   width: 100%;
+  padding: 100px 0 0 0;
 `;
 
 export const Carousel = styled(motion.div)`
