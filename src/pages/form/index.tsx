@@ -38,6 +38,9 @@ const Form = () => {
         },
         {
           withCredentials: true,
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
         }
       );
       router.push('/form/completed');
@@ -73,7 +76,7 @@ const Form = () => {
 
   return (
     <Layout>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
         <S.FormWrapper>
           <S.FormContainer ref={sectionRefs[0]}>
             <MainTitle title="Reservation" />
