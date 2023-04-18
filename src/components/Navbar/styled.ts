@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import Link from 'next/link';
 
 export const NavbarContainer = styled.div`
   position: fixed;
@@ -22,10 +23,11 @@ export const NavbarMenu = styled.div`
 
 export const NavbarTextMenu = styled.div``;
 
-export const NavbarMenuLink = styled.span`
+export const NavbarMenuLink = styled(Link)`
   font-size: 16px;
   font-weight: 600;
   color: #abaaaa;
+  text-decoration: none;
 
   cursor: pointer;
 
