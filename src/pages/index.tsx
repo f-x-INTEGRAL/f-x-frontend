@@ -74,6 +74,13 @@ const HomePage: NextPage = () => {
             left: 0,
             behavior: 'smooth',
           });
+        } else if (scrollTop >= 855 && scrollTop < 1050 * 7) {
+          console.log('7 d');
+          scrollRef.current?.scrollTo({
+            top: 1050 * 7,
+            left: 0,
+            behavior: 'smooth',
+          });
         }
       } else {
         if (scrollTop >= 0 && scrollTop < pageHeight) {
@@ -111,10 +118,17 @@ const HomePage: NextPage = () => {
             left: 0,
             behavior: 'smooth',
           });
-        } else if (scrollTop >= 4430 && scrollTop <= 5980) {
+        } else if (scrollTop >= 4430 && scrollTop <= 5640) {
           console.log('6 u');
           scrollRef.current?.scrollTo({
             top: 4700,
+            left: 0,
+            behavior: 'smooth',
+          });
+        } else if (scrollTop >= 5640 && scrollTop <= 6750) {
+          console.log('7 u');
+          scrollRef.current?.scrollTo({
+            top: 5520,
             left: 0,
             behavior: 'smooth',
           });

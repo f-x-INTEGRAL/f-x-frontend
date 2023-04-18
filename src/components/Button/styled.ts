@@ -17,9 +17,12 @@ export const Button = styled.button`
   border-radius: 12px;
   width: 120px;
   height: 50px;
-  &:active {
-    box-shadow: inset 0 0px 10px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    box-shadow: inset 0 0px 10px rgba(0, 0, 0, 0.4);
   }
+
+  cursor: pointer;
 `;
 
 export const TextWrapper = styled.div`

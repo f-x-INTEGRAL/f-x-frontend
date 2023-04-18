@@ -3,12 +3,15 @@ import Image from 'next/image';
 
 import Logo from '@/assets/images/logo.png';
 import * as S from './styled';
+import Link from 'next/link';
 
 export const Navbar = () => {
   return (
     <S.NavbarContainer>
       <S.NavbarMenu>
-        <Image src={Logo} alt="Intergal Logo" style={{ cursor: 'pointer' }} />
+        <Link href="/">
+          <Image src={Logo} alt="Intergal Logo" style={{ cursor: 'pointer' }} />
+        </Link>
         <S.NavbarTextMenu>
           <S.NavbarMenuLink href="/form" style={{ marginRight: '30px' }}>
             예매 하기

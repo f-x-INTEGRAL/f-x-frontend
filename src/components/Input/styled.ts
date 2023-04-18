@@ -20,3 +20,8 @@ export const InputText = styled.input`
     color: #000000;
   }
 `;
+
+export const InputErrorText = styled.span`
+  color: red;
+  font-size: 15px;
+`;

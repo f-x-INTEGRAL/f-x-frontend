@@ -3,12 +3,14 @@ import * as S from './styled';
 
 interface ButtonProps {
   text: string;
+  type?: 'submit';
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export const Button = ({ text }: ButtonProps) => {
+export const Button = ({ text, ...props }: ButtonProps) => {
   return (
     <S.ButtonWrapper>
-      <S.Button>{text}</S.Button>
+      <S.Button {...props}>{text}</S.Button>
       <S.TextWrapper>
         <S.TextBox>press</S.TextBox>
         <S.TextBox black>Enter</S.TextBox>
