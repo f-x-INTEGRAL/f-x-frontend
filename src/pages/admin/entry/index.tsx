@@ -1,10 +1,10 @@
 import React, { NextPage } from 'next';
 import Image from 'next/image';
-import Symbol from '@/assets/images/symbol.png';
 import { Input, Layout, MainTitle, Button } from '@/components';
 import { useState } from 'react';
 import axios from 'axios';
 import styled from '@emotion/styled';
+import Symbol from '../../../assets/images/Symbol.png';
 
 export const EntryWrapper = styled.div`
   display: flex;
