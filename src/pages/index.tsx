@@ -28,7 +28,7 @@ const HomePage: NextPage = () => {
     const wheelHandler = (e: WheelEvent) => {
       e.preventDefault();
       const { deltaY } = e;
-      const { scrollTop } = scrollRef.current;
+      const { scrollTop } = scrollRef.current || { scrollTop: 0 };
       const pageHeight = window.innerHeight;
 
       if (deltaY > 0) {
