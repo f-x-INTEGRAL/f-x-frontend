@@ -14,7 +14,7 @@ export const Navbar = () => {
         </Link>
         <S.NavbarTextMenu>
           <S.NavbarMenuLink href="/form" style={{ marginRight: '30px' }}>
-            예매 하기
+            티켓 예매
           </S.NavbarMenuLink>
           <S.NavbarMenuLink href="/qna">자주 묻는 질문</S.NavbarMenuLink>
         </S.NavbarTextMenu>

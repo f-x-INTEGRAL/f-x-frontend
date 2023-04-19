@@ -129,7 +129,7 @@ export const MainSecondContainer = styled.div`
     #62a1f1,
     #0f78ff,
     #0f78ff,
-    #004193,
+    #0f78ff,
     #0f78ff,
     #0f78ff,
     #62a1f1,
@@ -156,7 +156,7 @@ export const MainImageBox = styled(Image)`
 
 export const HistoryContainer = styled.div`
   width: 100%;
-  padding: 100px 0 0 0;
+  padding: 60px 0 0 0;
   text-align: start;
   display: flex;
 `;
@@ -203,7 +203,7 @@ export const HistoryTitle = styled.p`
 
 export const HistoryList = styled.ol`
   list-style: none;
-  padding: 0 0 74px;
+  padding: 0 0 95px;
 `;
 
 export const HistoryListItem = styled.li`
@@ -256,119 +256,12 @@ export const MemberImage = styled(Image)`
 `;
 
 const HomePage: NextPage = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const wheelHandler = (e: WheelEvent) => {
-      e.preventDefault();
-      const { deltaY } = e;
-      const { scrollTop } = scrollRef.current || { scrollTop: 0 };
-      const pageHeight = window.innerHeight;
-
-      if (deltaY > 0) {
-        if (scrollTop >= 0 && scrollTop < 880) {
-          scrollRef.current?.scrollTo({
-            top: 880,
-            left: 0,
-            behavior: 'smooth',
-          });
-        } else if (scrollTop >= 850 && scrollTop < 880 * 2) {
-          scrollRef.current?.scrollTo({
-            top: 880 * 2,
-            left: 0,
-            behavior: 'smooth',
-          });
-        } else if (scrollTop >= 788 && scrollTop < 860 * 3) {
-          scrollRef.current?.scrollTo({
-            top: 860 * 3,
-            left: 0,
-            behavior: 'smooth',
-          });
-        } else if (scrollTop >= 800 && scrollTop < 900 * 4) {
-          scrollRef.current?.scrollTo({
-            top: 900 * 4,
-            left: 0,
-            behavior: 'smooth',
-          });
-        } else if (scrollTop >= 855 && scrollTop < 940 * 5) {
-          scrollRef.current?.scrollTo({
-            top: 940 * 5,
-            left: 0,
-            behavior: 'smooth',
-          });
-        } else if (scrollTop >= 855 && scrollTop < 940 * 6) {
-          scrollRef.current?.scrollTo({
-            top: 940 * 6,
-            left: 0,
-            behavior: 'smooth',
-          });
-        } else if (scrollTop >= 855 && scrollTop < 1050 * 7) {
-          scrollRef.current?.scrollTo({
-            top: 1050 * 7,
-            left: 0,
-            behavior: 'smooth',
-          });
-        }
-      } else {
-        if (scrollTop >= 0 && scrollTop < pageHeight) {
-          scrollRef.current?.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'smooth',
-          });
-        } else if (scrollTop >= pageHeight && scrollTop <= 1760) {
-          scrollRef.current?.scrollTo({
-            top: 880,
-            left: 0,
-            behavior: 'smooth',
-          });
-        } else if (scrollTop >= 1760 && scrollTop <= 3520) {
-          scrollRef.current?.scrollTo({
-            top: 1760,
-            left: 0,
-            behavior: 'smooth',
-          });
-        } else if (scrollTop >= 3520 && scrollTop <= 4400) {
-          scrollRef.current?.scrollTo({
-            top: 1760,
-            left: 0,
-            behavior: 'smooth',
-          });
-        } else if (scrollTop >= 4400 && scrollTop <= 4700) {
-          scrollRef.current?.scrollTo({
-            top: 3600,
-            left: 0,
-            behavior: 'smooth',
-          });
-        } else if (scrollTop >= 4430 && scrollTop <= 5640) {
-          scrollRef.current?.scrollTo({
-            top: 4700,
-            left: 0,
-            behavior: 'smooth',
-          });
-        } else if (scrollTop >= 5640 && scrollTop <= 6750) {
-          scrollRef.current?.scrollTo({
-            top: 5520,
-            left: 0,
-            behavior: 'smooth',
-          });
-        }
-      }
-    };
-
-    const scrollRefCurrent = scrollRef.current;
-    scrollRefCurrent?.addEventListener('wheel', wheelHandler);
-    return () => {
-      scrollRefCurrent?.removeEventListener('wheel', wheelHandler);
-    };
-  }, []);
-
   const variants = {
     start: { pathLength: 0, fill: 'rgba(255, 255, 255,0)' },
     end: { pathLength: 1, fill: 'rgba(255,255,255,1)' },
   };
   return (
-    <ScrollContainer ref={scrollRef}>
+    <ScrollContainer>
       <Layout>
         <MainFirstContainer>
           <SVGContainer>
@@ -410,7 +303,7 @@ const HomePage: NextPage = () => {
             </SVGDrumContainer>
           </SVGContainer>
           <MainLogoImage src={MainLogo} alt="Intergal Logo" />
-          <MainMiniTitle>INTEGRAL</MainMiniTitle>
+          <MainMiniTitle>f(x);나봄</MainMiniTitle>
           <MainSubTitle>공연기획</MainSubTitle>
           <MainDescription>
             2019년, 다른 밴드 공연의 오프닝밴드로 무대를 마지막으로 지금까지
@@ -465,7 +358,7 @@ const HomePage: NextPage = () => {
             <MainImageBox src={BandImage4} alt="BandImage4" />
             <MainImageBox src={BandImage5} alt="BandImage5" />
           </ImageContainer>
-          <MainLineContainer>
+          <MainLineContainer style={{ padding: '200px 0 60px 0' }}>
             <MainLineText>Team Story</MainLineText>
             <MainLine />
             <MainLineText>History</MainLineText>
@@ -481,7 +374,7 @@ const HomePage: NextPage = () => {
               <HistoryList>
                 <HistoryListItem>'나봄' 두번째 공연</HistoryListItem>
               </HistoryList>
-              <HistoryTitle>2019.11</HistoryTitle>
+              <HistoryTitle>2019.02</HistoryTitle>
               <HistoryList>
                 <HistoryListItem>f(x) 공연 '나봄' 찬조</HistoryListItem>
               </HistoryList>
@@ -503,62 +396,6 @@ const HomePage: NextPage = () => {
         <MainThirdContainer>
           <MainTitle title="Team Member" />
           <MemberContainer>
-            <MemberBox color="#a8ffb7">
-              <h2>강예담</h2>
-              <h4>POSITION</h4>
-              <h3>KEYBOARD</h3>
-              <MemberImage
-                src={Piano1}
-                alt="piano"
-                style={{ marginTop: '90px' }}
-              />
-            </MemberBox>
-            <MemberBox color="#FFB762">
-              <h2>곽호윤</h2>
-              <h4>POSITION</h4>
-              <h3>MANAGER</h3>
-              <MemberImage
-                src={Manager}
-                alt="piano"
-                style={{ marginRight: '5px' }}
-              />
-            </MemberBox>
-            <MemberBox color="#8F73FF">
-              <h2>김정완</h2>
-              <h4>POSITION</h4>
-              <h3>KEYBOARD</h3>
-              <MemberImage
-                src={Piano2}
-                alt="piano"
-                style={{ marginTop: '90px' }}
-              />
-            </MemberBox>
-            <MemberBox color="#9DDD34">
-              <h2>남인식</h2>
-              <h4>POSITION</h4>
-              <h3>HAKWONGANGSA</h3>
-              <MemberImage
-                src={Teacher}
-                alt="Teacher"
-                style={{ marginTop: '50px' }}
-              />
-            </MemberBox>
-            <MemberBox color="#FF5775">
-              <h2>이민형</h2>
-              <h4>POSITION</h4>
-              <h3>DRUM</h3>
-              <MemberImage
-                src={Drum}
-                alt="Drum"
-                style={{ marginTop: '80px' }}
-              />
-            </MemberBox>
-            <MemberBox color="#3491FF">
-              <h2>안정기</h2>
-              <h4>POSITION</h4>
-              <h3>BASS</h3>
-              <MemberImage src={Bass} alt="Bass" style={{ rotate: '45deg' }} />
-            </MemberBox>
             <MemberBox color="#FF74F9">
               <h2>장희준</h2>
               <h4>POSITION</h4>
@@ -587,6 +424,62 @@ const HomePage: NextPage = () => {
                 src={Guitar2}
                 alt="Guitar2"
                 style={{ rotate: '45deg' }}
+              />
+            </MemberBox>
+            <MemberBox color="#3491FF">
+              <h2>안정기</h2>
+              <h4>POSITION</h4>
+              <h3>BASS</h3>
+              <MemberImage src={Bass} alt="Bass" style={{ rotate: '45deg' }} />
+            </MemberBox>
+            <MemberBox color="#FF5775">
+              <h2>이민형</h2>
+              <h4>POSITION</h4>
+              <h3>DRUM</h3>
+              <MemberImage
+                src={Drum}
+                alt="Drum"
+                style={{ marginTop: '80px' }}
+              />
+            </MemberBox>
+            <MemberBox color="#FFB762">
+              <h2>곽호윤</h2>
+              <h4>POSITION</h4>
+              <h3>MANAGER</h3>
+              <MemberImage
+                src={Manager}
+                alt="piano"
+                style={{ marginRight: '5px' }}
+              />
+            </MemberBox>
+            <MemberBox color="#8F73FF">
+              <h2>김정완</h2>
+              <h4>POSITION</h4>
+              <h3>KEYBOARD</h3>
+              <MemberImage
+                src={Piano2}
+                alt="piano"
+                style={{ marginTop: '90px' }}
+              />
+            </MemberBox>
+            <MemberBox color="#a8ffb7">
+              <h2>강예담</h2>
+              <h4>POSITION</h4>
+              <h3>KEYBOARD</h3>
+              <MemberImage
+                src={Piano1}
+                alt="piano"
+                style={{ marginTop: '90px' }}
+              />
+            </MemberBox>
+            <MemberBox color="#9DDD34">
+              <h2>남인식</h2>
+              <h4>POSITION</h4>
+              <h3>HAKWONGANGSA</h3>
+              <MemberImage
+                src={Teacher}
+                alt="Teacher"
+                style={{ marginTop: '50px' }}
               />
             </MemberBox>
           </MemberContainer>

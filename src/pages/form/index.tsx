@@ -196,13 +196,13 @@ const FormPage = () => {
                     handleButtonClick(e, 2)
                   }
                 />
-                <ScrollUpButton
-                  onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-                    handleButtonClick(e, 0)
-                  }
-                >
-                  UP
-                </ScrollUpButton>
+                  <ScrollUpButton
+                    onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+                      handleButtonClick(e, 0)
+                    }
+                  >
+                    UP
+                  </ScrollUpButton>
               </FormItems>
             </Form>
           </FormContainer>
