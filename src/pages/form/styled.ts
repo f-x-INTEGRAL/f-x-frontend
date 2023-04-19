@@ -7,7 +7,7 @@ export const FormWrapper = styled.div`
 `;
 
 export const FormContainer = styled.div`
-  padding-top: 200px;
+  padding-top: 255px;
 `;
 
 export const FormTitle = styled.h1`
@@ -32,7 +32,7 @@ export const Form = styled.div`
   flex-direction: column;
   float: left;
 
-  margin-top: 5%;
+  margin-top: 8%;
 `;
 
 export const FormItems = styled.div`

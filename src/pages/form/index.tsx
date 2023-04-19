@@ -105,7 +105,7 @@ const Form = () => {
               </S.FormItems>
             </S.Form>
           </S.FormContainer>
-          <S.FormContainer ref={sectionRefs[1]} style={{ paddingTop: '400px' }}>
+          <S.FormContainer ref={sectionRefs[1]} style={{ paddingTop: '280px' }}>
             <MainTitle title="Reservation" />
             <S.Form>
               <S.FormTitle>전화번호를 입력해주세요.</S.FormTitle>
@@ -144,7 +144,7 @@ const Form = () => {
           </S.FormContainer>
           <S.FormContainer
             ref={sectionRefs[2]}
-            style={{ padding: '350px 0 200px 0' }}
+            style={{ padding: '285px 0 200px 0' }}
           >
             <MainTitle title="Reservation" />
             <S.Form>
