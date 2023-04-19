@@ -2,12 +2,73 @@ import React, { useEffect, useRef } from 'react';
 import { Button, Input, Layout, MainTitle } from '@/components';
 import { useForm } from 'react-hook-form';
 
-import { instance } from '@/api';
 import { APIErrorResponse } from '@/api';
 
-import * as S from './styled';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+
+import styled from '@emotion/styled';
+
+export const FormWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  float: left;
+`;
+
+export const FormContainer = styled.div`
+  padding-top: 255px;
+`;
+
+export const FormTitle = styled.h1`
+  display: flex;
+
+  :before {
+    content: '↳';
+    color: #abaaaa;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  :after {
+    content: '+';
+    color: #abaaaa;
+    font-size: 30px;
+    font-weight: 400;
+  }
+`;
+
+export const Form = styled.div`
+  display: flex;
+  flex-direction: column;
+  float: left;
+
+  margin-top: 8%;
+`;
+
+export const FormItems = styled.div`
+  float: left;
+  width: 54%;
+`;
+
+export const ScrollUpButton = styled.button`
+  margin-top: 10px;
+  background-color: #b8d7ff;
+  border: none;
+  border-radius: 5px;
+  width: 80px;
+  height: 30px;
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  line-height: 30px;
+
+  cursor: pointer;
+
+  &:hover {
+    color: black;
+    background-color: #62a1f1;
+    transition: 0.5s;
+  }
+`;
 
 interface ReservationFormProps {
   name: string;
@@ -15,7 +76,7 @@ interface ReservationFormProps {
   quantity: string;
 }
 
-const Form = () => {
+const form = () => {
   const {
     register,
     handleSubmit,
@@ -77,12 +138,12 @@ const Form = () => {
   return (
     <Layout>
       <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
-        <S.FormWrapper>
-          <S.FormContainer ref={sectionRefs[0]}>
+        <FormWrapper>
+          <FormContainer ref={sectionRefs[0]}>
             <MainTitle title="Reservation" />
-            <S.Form>
-              <S.FormTitle>이름을 입력해주세요.</S.FormTitle>
-              <S.FormItems>
+            <Form>
+              <FormTitle>이름을 입력해주세요.</FormTitle>
+              <FormItems>
                 <Input
                   placeholder="Type your name here..."
                   type="text"
@@ -105,14 +166,14 @@ const Form = () => {
                     handleButtonClick(e, 1)
                   }
                 />
-              </S.FormItems>
-            </S.Form>
-          </S.FormContainer>
-          <S.FormContainer ref={sectionRefs[1]} style={{ paddingTop: '280px' }}>
+              </FormItems>
+            </Form>
+          </FormContainer>
+          <FormContainer ref={sectionRefs[1]} style={{ paddingTop: '280px' }}>
             <MainTitle title="Reservation" />
-            <S.Form>
-              <S.FormTitle>전화번호를 입력해주세요.</S.FormTitle>
-              <S.FormItems>
+            <Form>
+              <FormTitle>전화번호를 입력해주세요.</FormTitle>
+              <FormItems>
                 <Input
                   placeholder="Type your phone num here..."
                   type="text"
@@ -135,24 +196,24 @@ const Form = () => {
                     handleButtonClick(e, 2)
                   }
                 />
-                <S.ScrollUpButton
+                <ScrollUpButton
                   onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
                     handleButtonClick(e, 0)
                   }
                 >
                   UP
-                </S.ScrollUpButton>
-              </S.FormItems>
-            </S.Form>
-          </S.FormContainer>
-          <S.FormContainer
+                </ScrollUpButton>
+              </FormItems>
+            </Form>
+          </FormContainer>
+          <FormContainer
             ref={sectionRefs[2]}
             style={{ padding: '285px 0 200px 0' }}
           >
             <MainTitle title="Reservation" />
-            <S.Form>
-              <S.FormTitle>예매 인원을 입력해주세요.</S.FormTitle>
-              <S.FormItems>
+            <Form>
+              <FormTitle>예매 인원을 입력해주세요.</FormTitle>
+              <FormItems>
                 <Input
                   placeholder="Type your quantity here..."
                   type="text"
@@ -174,17 +235,17 @@ const Form = () => {
                   type="submit"
                   onClick={handleSubmit(onSubmit)}
                 />
-                <S.ScrollUpButton
+                <ScrollUpButton
                   onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
                     handleButtonClick(e, 1)
                   }
                 >
                   UP
-                </S.ScrollUpButton>
-              </S.FormItems>
-            </S.Form>
-          </S.FormContainer>
-        </S.FormWrapper>
+                </ScrollUpButton>
+              </FormItems>
+            </Form>
+          </FormContainer>
+        </FormWrapper>
       </form>
     </Layout>
   );

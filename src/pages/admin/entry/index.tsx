@@ -1,12 +1,20 @@
 import React, { NextPage } from 'next';
 import Image from 'next/image';
 import Symbol from '../../../assets/images/Symbol.png';
-import * as S from './styled';
 import { Input, Layout, MainTitle, Button } from '@/components';
+import styled from '@emotion/styled';
+
+export const EntryWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 100px;
+`;
+
 const adminEntryPage: NextPage = () => {
   return (
     <Layout>
-      <S.entryWrapper>
+      <EntryWrapper>
         <Image src={Symbol} alt="admin_entry_logo"></Image>
         <MainTitle
           x45
@@ -14,7 +22,7 @@ const adminEntryPage: NextPage = () => {
         />
         <Input type="password" placeholder="Writing admin password..."></Input>
         <Button text="OK"></Button>
-      </S.entryWrapper>
+      </EntryWrapper>
     </Layout>
   );
 };
