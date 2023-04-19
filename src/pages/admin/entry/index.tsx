@@ -1,6 +1,6 @@
 import React, { NextPage } from 'next';
 import Image from 'next/image';
-import Symbol from '../../../assets/images/Symbol.png';
+import Symbol from '@/assets/images/symbol.png';
 import { Input, Layout, MainTitle, Button } from '@/components';
 import { useState } from 'react';
 import axios from 'axios';
