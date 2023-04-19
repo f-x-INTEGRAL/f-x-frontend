@@ -76,7 +76,7 @@ interface ReservationFormProps {
   quantity: string;
 }
 
-const form = () => {
+const FormPage = () => {
   const {
     register,
     handleSubmit,
@@ -251,4 +251,4 @@ const form = () => {
   );
 };
 
-export default Form;
+export default FormPage;

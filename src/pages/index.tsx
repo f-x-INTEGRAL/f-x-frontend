@@ -267,49 +267,42 @@ const HomePage: NextPage = () => {
 
       if (deltaY > 0) {
         if (scrollTop >= 0 && scrollTop < 880) {
-          console.log('1 d');
           scrollRef.current?.scrollTo({
             top: 880,
             left: 0,
             behavior: 'smooth',
           });
         } else if (scrollTop >= 850 && scrollTop < 880 * 2) {
-          console.log('2 d');
           scrollRef.current?.scrollTo({
             top: 880 * 2,
             left: 0,
             behavior: 'smooth',
           });
         } else if (scrollTop >= 788 && scrollTop < 860 * 3) {
-          console.log('3 d');
           scrollRef.current?.scrollTo({
             top: 860 * 3,
             left: 0,
             behavior: 'smooth',
           });
         } else if (scrollTop >= 800 && scrollTop < 900 * 4) {
-          console.log('4 d');
           scrollRef.current?.scrollTo({
             top: 900 * 4,
             left: 0,
             behavior: 'smooth',
           });
         } else if (scrollTop >= 855 && scrollTop < 940 * 5) {
-          console.log('5 d');
           scrollRef.current?.scrollTo({
             top: 940 * 5,
             left: 0,
             behavior: 'smooth',
           });
         } else if (scrollTop >= 855 && scrollTop < 940 * 6) {
-          console.log('6 d');
           scrollRef.current?.scrollTo({
             top: 940 * 6,
             left: 0,
             behavior: 'smooth',
           });
         } else if (scrollTop >= 855 && scrollTop < 1050 * 7) {
-          console.log('7 d');
           scrollRef.current?.scrollTo({
             top: 1050 * 7,
             left: 0,
@@ -318,49 +311,42 @@ const HomePage: NextPage = () => {
         }
       } else {
         if (scrollTop >= 0 && scrollTop < pageHeight) {
-          console.log('1 u');
           scrollRef.current?.scrollTo({
             top: 0,
             left: 0,
             behavior: 'smooth',
           });
         } else if (scrollTop >= pageHeight && scrollTop <= 1760) {
-          console.log('2 u');
           scrollRef.current?.scrollTo({
             top: 880,
             left: 0,
             behavior: 'smooth',
           });
         } else if (scrollTop >= 1760 && scrollTop <= 3520) {
-          console.log('3 u');
           scrollRef.current?.scrollTo({
             top: 1760,
             left: 0,
             behavior: 'smooth',
           });
         } else if (scrollTop >= 3520 && scrollTop <= 4400) {
-          console.log('4 u');
           scrollRef.current?.scrollTo({
             top: 1760,
             left: 0,
             behavior: 'smooth',
           });
         } else if (scrollTop >= 4400 && scrollTop <= 4700) {
-          console.log('5 u');
           scrollRef.current?.scrollTo({
             top: 3600,
             left: 0,
             behavior: 'smooth',
           });
         } else if (scrollTop >= 4430 && scrollTop <= 5640) {
-          console.log('6 u');
           scrollRef.current?.scrollTo({
             top: 4700,
             left: 0,
             behavior: 'smooth',
           });
         } else if (scrollTop >= 5640 && scrollTop <= 6750) {
-          console.log('7 u');
           scrollRef.current?.scrollTo({
             top: 5520,
             left: 0,
