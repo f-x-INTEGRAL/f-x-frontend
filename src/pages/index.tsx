@@ -46,6 +46,12 @@ export const SVGGuitarContainer = styled.div`
   position: absolute;
   top: -150px;
   right: 150px;
+  width: 700px;
+
+  @media (max-width: 768px) {
+    width: 300px;
+    right: 50px;
+  }
 `;
 
 export const SVGDrumContainer = styled.div`
@@ -53,11 +59,22 @@ export const SVGDrumContainer = styled.div`
   position: absolute;
   top: -150px;
   left: 150px;
+  width: 700px;
+
+  @media (max-width: 768px) {
+    width: 300px;
+    left: 55px;
+  }
 `;
 
 export const MainLogoImage = styled(Image)`
   width: 210px;
   height: 180px;
+
+  @media (max-width: 768px) {
+    width: 120px;
+    height: 110px;
+  }
 `;
 
 export const MainMiniTitle = styled.h1`
@@ -66,6 +83,11 @@ export const MainMiniTitle = styled.h1`
   font-size: 2.5rem;
   color: #62a1f1;
   padding: 0 0 20px 20px;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    letter-spacing: 0.28rem;
+  }
 `;
 
 export const MainSubTitle = styled.p`
@@ -80,6 +102,10 @@ export const MainDescription = styled.p`
   text-align: center;
   font-size: 1.2rem;
   color: #757575;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
 `;
 
 export const MainLineContainer = styled.div`
@@ -87,25 +113,44 @@ export const MainLineContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 200px 0;
+
+  @media (max-width: 768px) {
+    width: 95%;
+    line-height: 100%;
+  }
 `;
 
 export const MainLineText = styled.p`
   font-size: 1rem;
   color: #abaaaa;
+
+  @media (max-width: 768px) {
+    font-size: 11px;
+    margin: 0 9px;
+    line-height: 120%;
+  }
 `;
 
 export const MainLine = styled.div`
   background-color: #abaaaa;
   height: 2px;
   width: 85%;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 export const TitleContainer = styled.div`
   width: 100%;
   flex-direction: column;
   margin-left: 30px;
-
+  margin-right: 30px;
   padding: 92px 0 92px 0;
+
+  @media (max-width: 768px) {
+    width: 84%;
+  }
 `;
 
 export const TitleTitle = styled.h1`
@@ -113,10 +158,20 @@ export const TitleTitle = styled.h1`
   font-size: 60px;
   color: #62a1f1;
   padding: 0 0 15px 0;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    font-size: 48px;
+  }
 `;
 
 export const TitleDescription = styled.p`
   font-size: 20px;
+
+  @media (max-width: 768px) {
+    width: 95%;
+    font-size: 12px;
+  }
 `;
 
 export const MainSecondContainer = styled.div`
@@ -154,6 +209,11 @@ export const MainImageBox = styled(Image)`
   margin: 15px 15px 15px 15px;
   border: 1px solid #fff;
   border-radius: 15px;
+
+  @media (max-width: 768px){
+    width: 360px;
+    height: 220px;
+  }
 `;
 
 export const HistoryContainer = styled.div`
@@ -258,7 +318,6 @@ export const MemberImage = styled(Image)`
 `;
 
 const MainFooter = styled.div`
-  position: absolute;
   transform: translateY(-100%);
   width: 80%;
   margin-top: 30px;
@@ -267,6 +326,9 @@ const MainFooter = styled.div`
 
   display: flex;
   justify-content: space-around;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const FooterComponent1 = styled.div`
@@ -283,6 +345,9 @@ const FooterImage = styled(Image)`
 const FooterImageText = styled.p`
   font-size: 14px;
   color: #abaaaa;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 const FooterComponent2Wrapper = styled.div`
@@ -322,7 +387,7 @@ const HomePage: NextPage = () => {
         <Layout>
           <MainFirstContainer>
             <SVGContainer>
-              <SVGGuitarContainer style={{ width: '700px' }}>
+              <SVGGuitarContainer>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 465.072 465.072"
@@ -340,7 +405,7 @@ const HomePage: NextPage = () => {
                   />
                 </svg>
               </SVGGuitarContainer>
-              <SVGDrumContainer style={{ width: '700px' }}>
+              <SVGDrumContainer>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 465.072 465.072"
@@ -548,47 +613,45 @@ const HomePage: NextPage = () => {
           </MainThirdContainer>
         </Layout>
       </ScrollContainer>
-      <Layout>
-        <MainFooter>
-          <FooterComponent1>
-            <FooterImage src={MainLogo} alt="" />
-            <FooterImageText>&copy; 2023 f(x) nabom</FooterImageText>
-          </FooterComponent1>
-          <FooterComponent2Wrapper>
-            <FooterComponent2>
-              <ul>
-                <FooterTitle>Sitemap</FooterTitle>
-                <FooterContent
-                  style={{ cursor: 'pointer' }}
-                  onClick={() => router.push('/form')}
-                >
-                  티켓 예매
-                </FooterContent>
-                <FooterContent
-                  style={{ cursor: 'pointer' }}
-                  onClick={() => router.push('/qna')}
-                >
-                  자주 묻는 질문
-                </FooterContent>
-              </ul>
-            </FooterComponent2>
-            <FooterComponent2>
-              <ul>
-                <FooterTitle>제작 지원</FooterTitle>
-                <FooterContent>김장필</FooterContent>
-                <FooterContent>김준석</FooterContent>
-                <FooterContent>정요찬</FooterContent>
-              </ul>
-            </FooterComponent2>
-            <FooterComponent2>
-              <ul>
-                <FooterTitle>리소스 출처</FooterTitle>
-                <FooterContent>macrovector</FooterContent>
-              </ul>
-            </FooterComponent2>
-          </FooterComponent2Wrapper>
-        </MainFooter>
-      </Layout>
+      <MainFooter>
+        <FooterComponent1>
+          <FooterImage src={MainLogo} alt="" />
+          <FooterImageText>&copy; 2023 f(x) nabom</FooterImageText>
+        </FooterComponent1>
+        <FooterComponent2Wrapper>
+          <FooterComponent2>
+            <ul>
+              <FooterTitle>Sitemap</FooterTitle>
+              <FooterContent
+                style={{ cursor: 'pointer' }}
+                onClick={() => router.push('/form')}
+              >
+                티켓 예매
+              </FooterContent>
+              <FooterContent
+                style={{ cursor: 'pointer' }}
+                onClick={() => router.push('/qna')}
+              >
+                자주 묻는 질문
+              </FooterContent>
+            </ul>
+          </FooterComponent2>
+          <FooterComponent2>
+            <ul>
+              <FooterTitle>제작 지원</FooterTitle>
+              <FooterContent>김장필</FooterContent>
+              <FooterContent>김준석</FooterContent>
+              <FooterContent>정요찬</FooterContent>
+            </ul>
+          </FooterComponent2>
+          <FooterComponent2>
+            <ul>
+              <FooterTitle>리소스 출처</FooterTitle>
+              <FooterContent>macrovector</FooterContent>
+            </ul>
+          </FooterComponent2>
+        </FooterComponent2Wrapper>
+      </MainFooter>
     </>
   );
 };
