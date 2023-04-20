@@ -1,25 +1,13 @@
 import { Theme } from '@emotion/react';
+import { createTheme } from '@mui/material';
 
-export const theme: Theme = {
-  sizes: {
-    space: {
-      x0: '0px',
-      x1: '4px',
+export const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1e88e5',
     },
-    fontSize: {
-      x1: '4px',
-      x2: '8px',
+    secondary: {
+      main: '#e53935',
     },
   },
-  colors: {
-    white: {
-      100: '#ffffff',
-    },
-    gray: {
-      100: '#abaaaa',
-    },
-    skyBlue: {
-      100: '#62a1f1',
-    },
-  },
-};
+});
