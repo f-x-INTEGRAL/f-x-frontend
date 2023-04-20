@@ -3,7 +3,7 @@ import { Layout, MainTitle } from '@/components';
 import Image from 'next/image';
 import Map from '../../assets/images/map.png';
 
-import { styled } from '@mui/material/styles';
+import { css, makeStyles, styled } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
 import MuiAccordionSummary, {
@@ -11,6 +11,7 @@ import MuiAccordionSummary, {
 } from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
+import { useMediaQuery } from '@mui/material';
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -44,6 +45,17 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
   },
 }));
 
+// const isMobile = useMediaQuery('(max-width: 768px)');
+
+// const useStyles = makeStyles(() => ({
+//   mobileFont: {
+//     Font
+//   },
+//   font: {
+//     font-size: "18px"
+//   },
+// }));
+
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   padding: theme.spacing(2),
   borderTop: '1px solid rgba(0, 0, 0, .125)',
@@ -60,7 +72,7 @@ export default function CustomizedAccordions() {
   return (
     <Layout>
       <div style={{ padding: '50px 0' }}>
-        <MainTitle title="자주 묻는 질문" />
+        <MainTitle x45 title="자주 묻는 질문" />
       </div>
       <Accordion
         expanded={expanded === 'panel1'}
@@ -203,7 +215,14 @@ export default function CustomizedAccordions() {
             <Image
               src={Map}
               alt=""
-              style={{ width: '1000px', height: '550px' }}
+              css={css`
+                width: 1000px;
+                height: 550px;
+                @media (max-width: 768px) {
+                  width: 0;
+                  height: 0;
+                }
+              `}
             />
           </Typography>
         </AccordionDetails>
