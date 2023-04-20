@@ -9,28 +9,48 @@ const CompletedWrapper = styled.div`
   flex-direction: column;
   float: left;
   width: 72%;
-
   padding: 120px 0;
+
+  @media (max-width: 768px) {
+    width: 60%;
+  }
 `;
 
 const TitleContainer = styled.div`
   padding-right: 200px;
+
+  @media (max-width: 768px) {
+    width: 450px;
+    padding: 0;
+    margin-left: 20px;
+  }
 `;
 
 const CompletedDescription = styled.text<{ x20?: boolean }>`
   padding-top: ${(props) => (props.x20 ? '20px' : '3px')};
   font-size: 28px;
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 26px;
+  }
 `;
 
 const DescriptionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 35px 0;
+  @media (max-width: 768px) {
+    padding-left: 25px;
+    padding-right: 10px;
+  }
 `;
 
 const ButtonContainer = styled.div`
   padding-right: 230px;
+  @media (max-width: 768px) {
+    padding-top: 100px;
+  }
 `;
 
 const Completed = () => {
@@ -39,7 +59,7 @@ const Completed = () => {
     <Layout>
       <CompletedWrapper>
         <TitleContainer>
-          <MainTitle title='"안녕하세요, f(x)입니다.' />
+          <MainTitle x45 title='"안녕하세요, f(x)입니다.' />
         </TitleContainer>
         <DescriptionWrapper>
           <CompletedDescription x20>

@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 export const FormWrapper = styled.div`
   display: flex;
@@ -16,7 +17,12 @@ export const FormWrapper = styled.div`
 `;
 
 export const FormContainer = styled.div`
-  padding-top: 255px;
+  padding-top: 220px;
+
+  @media (max-width: 768px) {
+    padding-top: 300px;
+    padding-bottom: 560px;
+  }
 `;
 
 export const FormTitle = styled.h1`
@@ -169,7 +175,15 @@ const FormPage = () => {
               </FormItems>
             </Form>
           </FormContainer>
-          <FormContainer ref={sectionRefs[1]} style={{ paddingTop: '280px' }}>
+          <FormContainer
+            ref={sectionRefs[1]}
+            css={css`
+              padding-top: 280px;
+              @media (max-width: 768px) {
+                padding-top: 360px;
+              }
+            `}
+          >
             <MainTitle title="Reservation" />
             <Form>
               <FormTitle>전화번호를 입력해주세요.</FormTitle>
@@ -196,19 +210,24 @@ const FormPage = () => {
                     handleButtonClick(e, 2)
                   }
                 />
-                  <ScrollUpButton
-                    onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-                      handleButtonClick(e, 0)
-                    }
-                  >
-                    UP
-                  </ScrollUpButton>
+                <ScrollUpButton
+                  onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
+                    handleButtonClick(e, 0)
+                  }
+                >
+                  UP
+                </ScrollUpButton>
               </FormItems>
             </Form>
           </FormContainer>
           <FormContainer
             ref={sectionRefs[2]}
-            style={{ padding: '285px 0 200px 0' }}
+            css={css`
+              padding: 220px 0 200px 0;
+              @media (max-width: 768px) {
+                padding: 25px 0 580px 0;
+              }
+            `}
           >
             <MainTitle title="Reservation" />
             <Form>

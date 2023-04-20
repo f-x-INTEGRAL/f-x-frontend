@@ -24,4 +24,7 @@ export const InputText = styled.input`
 export const InputErrorText = styled.span`
   color: red;
   font-size: 15px;
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
