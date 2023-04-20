@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const NavbarContainer = styled.div`
   position: fixed;
@@ -13,12 +14,23 @@ export const NavbarContainer = styled.div`
 
   z-index: 100;
 `;
+export const LogoImage = styled(Image)`
+  width: 168px;
+  height: 70px;
 
+  @media (max-width: 768px) {
+    width: 120px;
+    height: 50px;
+  }
+`;
 export const NavbarMenu = styled.div`
   width: 90%;
   height: 100%;
   display: flex;
   align-items: center;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const NavbarTextMenu = styled.div``;

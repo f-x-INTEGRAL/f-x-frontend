@@ -10,7 +10,7 @@ export const Navbar = () => {
     <S.NavbarContainer>
       <S.NavbarMenu>
         <Link href="/">
-          <Image src={Logo} alt="Intergal Logo" style={{ cursor: 'pointer' }} />
+          <S.LogoImage src={Logo} alt="Intergal Logo" style={{ cursor: 'pointer' }} />
         </Link>
         <S.NavbarTextMenu>
           <S.NavbarMenuLink href="/form" style={{ marginRight: '30px' }}>
