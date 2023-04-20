@@ -23,8 +23,7 @@ import Mike from '@/assets/images/mike.png';
 import styled from '@emotion/styled';
 
 export const ScrollContainer = styled.div`
-  height: 100vh;
-  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 export const MainFirstContainer = styled.div`
