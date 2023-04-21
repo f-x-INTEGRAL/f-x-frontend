@@ -16,11 +16,11 @@ export const NavbarContainer = styled.div`
 `;
 export const LogoImage = styled(Image)`
   width: 168px;
-  height: 70px;
+  height: 50px;
 
   @media (max-width: 768px) {
-    width: 120px;
-    height: 50px;
+    width: 125px;
+    height: 38px;
   }
 `;
 export const NavbarMenu = styled.div`
