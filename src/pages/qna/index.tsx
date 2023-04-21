@@ -56,6 +56,15 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
 //   },
 // }));
 
+export const MapImage = styled(Image)`
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
+
+  &:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  }
+`;
+
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   padding: theme.spacing(2),
   borderTop: '1px solid rgba(0, 0, 0, .125)',
@@ -84,12 +93,14 @@ export default function CustomizedAccordions() {
       >
         <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
           <Typography style={{ fontSize: '18px' }}>
-            Q. 공연장에 늦게 도착했을 경우 입장할 수 있나요?
+            Q. 티켓 예매는 어디서 해야하나요?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            A. 입장 가능합니다. 매표소에 있는 도우미의 안내에 따라 입장해주세요.
+            A. 페이지 상단의 '티켓 예매' 버튼을 눌러 안내에 따라 내용을
+            입력하시면 됩니다. 양식을 제출하신 후 입금이 확인되면 예매를
+            확정해드립니다.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -99,12 +110,12 @@ export default function CustomizedAccordions() {
       >
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
           <Typography style={{ fontSize: '18px' }}>
-            Q. 공연장 입장 시각은 언제인가요?
+            Q. 예매 확정 안내는 어떻게 받을 수 있나요?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            A. 공연장 입장은 공연 시작 30분 전인 6시까지 가능합니다.
+            A. 입금이 확인되면 개별적으로 예매 확정 문자를 발송할 예정입니다.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -130,13 +141,12 @@ export default function CustomizedAccordions() {
       >
         <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
           <Typography style={{ fontSize: '18px' }}>
-            Q. 티켓 예매는 어디서 해야하나요?
+            Q. 공연장 입장은 몇시부터 가능한가요?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            A. 위의 티켓 예매 버튼을 눌러 안내에 따라 예매하시면 됩니다. 입금이
-            확인되면 예매를 확정해드립니다.
+            A. 공연장 입장은 공연 시작 30분 전인 6시부터 가능합니다.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -146,12 +156,12 @@ export default function CustomizedAccordions() {
       >
         <AccordionSummary aria-controls="panel5d-content" id="panel5d-header">
           <Typography style={{ fontSize: '18px' }}>
-            Q. 공연 당일 예매 취소가 가능한가요?
+            Q. 공연 시작 이후에도 입장이 가능한가요?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            A. 공연 당일 예매 취소는 불가능합니다. 다만 양도는 가능합니다.
+            A. 입장 가능합니다. 매표소에 있는 도우미의 안내에 따라 입장해주세요.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -161,12 +171,13 @@ export default function CustomizedAccordions() {
       >
         <AccordionSummary aria-controls="panel6d-content" id="panel6d-header">
           <Typography style={{ fontSize: '18px' }}>
-            Q. 예매 확정 안내는 어떻게 받을 수 있나요?
+            Q. 공연 당일 예매 취소가 가능한가요?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            A. 입금이 확인되면 개별적으로 예매 확정 문자가 발송됩니다.
+            A. 공연 당일 예매 취소는 불가능합니다. 예매 양도는 가능합니다. (양도
+            사실 확인 필요)
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -181,8 +192,8 @@ export default function CustomizedAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            A. 공연장 내에 식음료를 판매하는 시설은 따로 없으니 공연장에
-            입장하시기 전에 준비해오시길 바랍니다.
+            입장 나이제한이 없는 관계로, 식수 외의 주류 및 음식은 반입
+            불가합니다.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -192,12 +203,13 @@ export default function CustomizedAccordions() {
       >
         <AccordionSummary aria-controls="panel8d-content" id="panel8d-header">
           <Typography style={{ fontSize: '18px' }}>
-            Q. 공연장 근처에 주차공간이 있나요?
+            Q. 공연장 근처에 주차가 가능한가요?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            A. 공연장 근처에 주차공간이 없으므로 대중교통 이용을 추천드립니다.
+            A. 공연장에는 주차공간이 없고 근처 공영주차장을 이용하셔야 합니다.
+            공영주차장의 공간이 협소할 수 있으니 참고바랍니다.
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -212,19 +224,20 @@ export default function CustomizedAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            A. 지하철의 경우 6호선 상수역 또는 2 · 6호선 합정역을 통해, 버스의
-            경우 서울화력발전소 입구 정류장에 정차하는 7011번, 7013A번,
-            7013B번을 이용하시거나 로데오거리 정류장에 정차하는 마포07번을
-            이용하시면 됩니다.
-            <Image
+            A. 지하철 : 상수역(6호선) 1번 출구 또는 합정역(2·6호선) 4,5번
+            출구에서 도보로 약 7분 이동 (약도의 빨간선 및 파란선 참고) 버스 :
+            7011, 7013A, 7013B을 타고 '서울화력발전소입구' 정류장에서 하차 후
+            도보로 약 2분 이동 (약도의 초록선 참고)
+            <MapImage
               src={Map}
-              alt=""
+              alt="map"
               css={css`
                 width: 1000px;
                 height: 550px;
                 @media (max-width: 768px) {
-                  width: 0;
-                  height: 0;
+                  margin-top: 15px;
+                  width: 400px;
+                  height: 250px;
                 }
               `}
             />
