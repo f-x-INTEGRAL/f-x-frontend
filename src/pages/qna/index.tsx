@@ -69,6 +69,10 @@ export default function CustomizedAccordions() {
       setExpanded(newExpanded ? panel : false);
     };
 
+  React.useEffect(() => {
+    document.body.style.overflow = 'scroll';
+  }, []);
+
   return (
     <Layout>
       <div style={{ padding: '50px 0' }}>

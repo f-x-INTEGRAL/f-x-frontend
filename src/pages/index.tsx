@@ -21,6 +21,8 @@ import Guitar2 from '@/assets/images/guitar2.png';
 import Mike from '@/assets/images/mike.png';
 
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
+import { useEffect } from 'react';
 
 export const ScrollContainer = styled.div`
   overflow-x: hidden;
@@ -381,6 +383,11 @@ const HomePage: NextPage = () => {
   };
 
   const router = useRouter();
+
+  useEffect(() => {
+    document.body.style.overflow = 'scroll';
+  }, []);
+
   return (
     <>
       <ScrollContainer>
@@ -442,7 +449,13 @@ const HomePage: NextPage = () => {
             </MainLineContainer>
             <TitleContainer>
               <TitleTitle>INTEGRAL</TitleTitle>
-              <TitleDescription>
+              <TitleDescription
+                css={css`
+                  @media (max-width: 768px) {
+                    width: 100%;
+                  }
+                `}
+              >
                 <strong>INTEGRAL</strong>은 한글로 ‘적분’입니다.
                 <br /> 수학에서 적분은 ‘함수의 그래프와 그 구간으로 둘러싸인
                 도형의 넓이’를 뜻합니다.
