@@ -4,11 +4,11 @@ import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-import MainLogo from '@/assets/images/mainLogo.png';
+import MainLogo from '@/assets/images/Mainlogo.png';
 import BandImage1 from '@/assets/images/bandImage1.png';
 import BandImage2 from '@/assets/images/bandImage2.png';
 import BandImage3 from '@/assets/images/bandImage3.png';
-import BandImage4 from '@/assets/images/bandImage4.png';
+import BandImage4 from '@/assets/images/bandImage4.jpg';
 import BandImage5 from '@/assets/images/bandImage5.png';
 import Piano1 from '@/assets/images/piano2.png';
 import Piano2 from '@/assets/images/piano1.png';
@@ -70,7 +70,7 @@ export const SVGDrumContainer = styled.div`
 `;
 
 export const MainLogoImage = styled(Image)`
-  width: 210px;
+  width: 140px;
   height: 180px;
 
   @media (max-width: 768px) {
@@ -90,13 +90,6 @@ export const MainMiniTitle = styled.h1`
     font-size: 2rem;
     letter-spacing: 0.28rem;
   }
-`;
-
-export const MainSubTitle = styled.p`
-  z-index: 5;
-  font-size: 1.2rem;
-  font-weight: 600;
-  padding: 0 0 20px 0;
 `;
 
 export const MainDescription = styled.p`
@@ -171,7 +164,7 @@ export const TitleDescription = styled.p`
   font-size: 20px;
 
   @media (max-width: 768px) {
-    width: 95%;
+    width: 85%;
     font-size: 12px;
   }
 `;
@@ -340,7 +333,7 @@ const FooterComponent1 = styled.div`
 
 const FooterImage = styled(Image)`
   width: 35px;
-  height: 30px;
+  height: 55px;
   padding: 0 5px;
 `;
 
@@ -433,14 +426,12 @@ const HomePage: NextPage = () => {
             </SVGContainer>
             <MainLogoImage src={MainLogo} alt="Intergal Logo" />
             <MainMiniTitle>f(x);나봄</MainMiniTitle>
-            <MainSubTitle>공연기획</MainSubTitle>
             <MainDescription>
-              2019년, 다른 밴드 공연의 오프닝밴드로 무대를 마지막으로 지금까지
-              한번도 무대에 서지 못하였습니다. <br /> 다들 생업과 학업에 치여
-              바쁘게 살아서 ‘공연’을 생각할 겨를이 없었습니다. <br /> 그러던중
-              올해 초에 한 멤버가 '우리 공연하자' 라는 이야기를 꺼냈습니다.{' '}
+              2017년 2월, 나봄이 시작되었습니다.
+              <br /> 2019년 2월, 찬조공연을 끝으로 악기를 잠시 내려두고
+              <br /> 모두가 흘러가는 세월에 발맞춰 바쁘게 살아왔습니다.
               <br />
-              그렇게 우리는 4년간의 침묵을 깨고 공연을 하기로 마음먹었습니다.
+              2023년 5월, 길었던 4년간의 침묵을 깨고 나봄을 다시 시작합니다.
             </MainDescription>
             <MainLineContainer>
               <MainLineText>Show Plan</MainLineText>
@@ -452,19 +443,15 @@ const HomePage: NextPage = () => {
               <TitleDescription
                 css={css`
                   @media (max-width: 768px) {
-                    width: 100%;
+                    width: 90%;
                   }
                 `}
               >
                 <strong>INTEGRAL</strong>은 한글로 ‘적분’입니다.
-                <br /> 수학에서 적분은 ‘함수의 그래프와 그 구간으로 둘러싸인
-                도형의 넓이’를 뜻합니다.
-                <br /> 한문으로는 ‘쌓을 적’자와 ‘나눌 분’자를 씁니다.
-                <br /> 그 이유는 적분이 구간을 잘게 나눴을 때 나오는 직사각형
-                여러 개를 쌓아서 넓이를 구하는 과정이기 때문입니다.
-                <br /> 2017년부터 2023년까지 저희가 함께 쌓아 온 음악에 대한
-                열정을 여러분께 보여드리고자
-                <br /> 공연 제목을 <strong>INTEGRAL</strong>로 정했습니다.
+                <br /> 이번 공연의 제목은 ‘INTEGRAL‘입니다.
+                <br /> 작은 사각형들을 쌓아 넓이를 구하는 적분(INTEGRAL)처럼
+                <br /> 나봄이 2017년부터 지금까지 쌓아온 열정과 경험을 이번
+                공연에 담아내고자 하였습니다.
               </TitleDescription>
             </TitleContainer>
             <MainLineContainer style={{ padding: '200px 0 10px 0' }}>
@@ -478,21 +465,32 @@ const HomePage: NextPage = () => {
           <Layout>
             <MainTitle title="Team Story" />
             <TitleDescription style={{ padding: '50px 0' }}>
-              Band f(x)는 홍익대학교 수학교육과에서 음악을 사랑하는 사람들이
-              만든 밴드 모임입니다.
-              <br /> 그 중에서도 공연을 진행하는 팀은 새로운 이름을 정합니다.
-              저희 팀의 이름은 ‘나봄’입니다.
-              <br /> 비유를 들자면 NCT-Dream같은 유닛팀이라고 생각할 수 있을 것
-              같네요 ㅎㅎ
-              <br /> 저희 나봄은 2017년의 첫 공연을 시작으로 지금까지 깊은
-              유대관계를 유지하며 음악에 대한 열정을 쌓아가고 있습니다.
+              홍익대학교 수학교육과 밴드 소모임 f(x)는 새롭게 만들어지는
+              공연팀마다 이름을 정하여 활동합니다.
+              <br /> 그 중 저희 팀은 2017년 봄에 결성되어 ‘봄에 태어나다’라는
+              뜻의 순우리말 ‘나봄’으로 활동하게 되었습니다.
+              <br />
             </TitleDescription>
             <ImageContainer>
               <MainImageBox src={BandImage1} alt="BandImage1" />
               <MainImageBox src={BandImage2} alt="BandImage2" />
               <MainImageBox src={BandImage3} alt="BandImage3" />
-              <MainImageBox src={BandImage4} alt="BandImage4" />
-              <MainImageBox src={BandImage5} alt="BandImage5" />
+              <MainImageBox
+                src={BandImage4}
+                alt="BandImage4"
+                css={css`
+                  width: 400px;
+                  height: 300px;
+                `}
+              />
+              <MainImageBox
+                src={BandImage5}
+                alt="BandImage5"
+                // css={css`
+                //   width: 500px;
+                //   height: 300px;
+                // `}
+              />
             </ImageContainer>
             <MainLineContainer style={{ padding: '200px 0 60px 0' }}>
               <MainLineText>Team Story</MainLineText>
