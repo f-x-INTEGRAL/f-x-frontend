@@ -15,7 +15,7 @@ export const NavbarContainer = styled.div`
   z-index: 100;
 `;
 export const LogoImage = styled(Image)`
-  width: 180px;
+  width: 150px;
   height: 65px;
 
   @media (max-width: 768px) {
