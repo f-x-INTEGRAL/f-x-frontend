@@ -59,8 +59,8 @@ export const SVGGuitarContainer = styled.div`
 export const SVGDrumContainer = styled.div`
   z-index: 2;
   position: absolute;
-  top: -150px;
-  left: 150px;
+  top: -120px;
+  left: 205px;
   width: 700px;
 
   @media (max-width: 768px) {
@@ -70,8 +70,8 @@ export const SVGDrumContainer = styled.div`
 `;
 
 export const MainLogoImage = styled(Image)`
-  width: 140px;
-  height: 180px;
+  width: 130px;
+  height: 210px;
 
   @media (max-width: 768px) {
     width: 95px;
@@ -394,7 +394,7 @@ const HomePage: NextPage = () => {
                   viewBox="0 0 465.072 465.072"
                 >
                   <motion.path
-                    style={{ stroke: '#cfcfcf', strokeWidth: 2 }}
+                    style={{ stroke: '#62a1f1', strokeWidth: 2 }}
                     variants={variants}
                     initial="start"
                     animate="end"
@@ -412,7 +412,7 @@ const HomePage: NextPage = () => {
                   viewBox="0 0 465.072 465.072"
                 >
                   <motion.path
-                    style={{ stroke: '#cfcfcf', strokeWidth: 2 }}
+                    style={{ stroke: '#62a1f1', strokeWidth: 2 }}
                     variants={variants}
                     initial="start"
                     animate="end"
