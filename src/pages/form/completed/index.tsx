@@ -3,6 +3,7 @@ import { Layout, MainTitle, Button } from '@/components';
 import { useRouter } from 'next/router';
 
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 const CompletedWrapper = styled.div`
   display: flex;
@@ -26,9 +27,14 @@ const TitleContainer = styled.div`
   }
 `;
 
-const CompletedDescription = styled.text<{ x20?: boolean }>`
+const CompletedDescription = styled.text<{
+  x20?: boolean;
+  x18?: boolean;
+  ab?: boolean;
+}>`
   padding-top: ${(props) => (props.x20 ? '20px' : '3px')};
-  font-size: 28px;
+  font-size: ${(props) => (props.x18 ? '18px' : '28px')};
+  color: ${(props) => (props.ab ? '#747474' : 'black')};
   margin: 0;
 
   @media (max-width: 768px) {
@@ -59,7 +65,7 @@ const Completed = () => {
     <Layout>
       <CompletedWrapper>
         <TitleContainer>
-          <MainTitle x45 title='"안녕하세요, f(x)입니다.' />
+          <MainTitle x45 title=' "안녕하세요, f(x);나봄 입니다." ' />
         </TitleContainer>
         <DescriptionWrapper>
           <CompletedDescription x20>
@@ -76,6 +82,18 @@ const Completed = () => {
           </CompletedDescription>
           <CompletedDescription x20>
             계좌: 국민 194602-04-188003 안정기
+          </CompletedDescription>
+          <CompletedDescription
+            x18
+            ab
+            css={css`
+              @media (max-width: 768px) {
+                font-size: 20px;
+              }
+            `}
+          >
+            입금자명은 방금 화면에서 입력하신 성함과 동일하게 하여 입금해주시기
+            바랍니다.
           </CompletedDescription>
           <ButtonContainer>
             <Button text="OK" type="submit" onClick={() => router.push('/')} />

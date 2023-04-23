@@ -10,13 +10,17 @@ export const Navbar = () => {
     <S.NavbarContainer>
       <S.NavbarMenu>
         <Link href="/">
-          <S.LogoImage src={Logo} alt="Intergal Logo" style={{ cursor: 'pointer' }} />
+          <S.LogoImage
+            src={Logo}
+            alt="Intergal Logo"
+            style={{ cursor: 'pointer' }}
+          />
         </Link>
         <S.NavbarTextMenu>
           <S.NavbarMenuLink href="/form" style={{ marginRight: '30px' }}>
             티켓 예매
           </S.NavbarMenuLink>
-          <S.NavbarMenuLink href="/qna">자주 묻는 질문</S.NavbarMenuLink>
+          <S.NavbarMenuLink href="/faq">자주 묻는 질문</S.NavbarMenuLink>
         </S.NavbarTextMenu>
       </S.NavbarMenu>
     </S.NavbarContainer>

@@ -74,8 +74,8 @@ export const MainLogoImage = styled(Image)`
   height: 180px;
 
   @media (max-width: 768px) {
-    width: 120px;
-    height: 110px;
+    width: 95px;
+    height: 125px;
   }
 `;
 
@@ -195,6 +195,7 @@ export const ImageContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 30px;
 `;
 
 export const MainImageBox = styled(Image)`
@@ -479,17 +480,9 @@ const HomePage: NextPage = () => {
                 src={BandImage4}
                 alt="BandImage4"
                 css={css`
-                  width: 400px;
-                  height: 300px;
+                  width: 402px;
+                  height: 302px;
                 `}
-              />
-              <MainImageBox
-                src={BandImage5}
-                alt="BandImage5"
-                // css={css`
-                //   width: 500px;
-                //   height: 300px;
-                // `}
               />
             </ImageContainer>
             <MainLineContainer style={{ padding: '200px 0 60px 0' }}>

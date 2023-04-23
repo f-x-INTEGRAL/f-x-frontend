@@ -162,7 +162,7 @@ export default function CustomizedAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            A. 공연장 입장은 공연 시작 30분 전인 6시부터 가능합니다.
+            A. 공연장 입장은 공연 시작 1시간 전인 5시 30분부터 가능합니다.
           </Typography>
         </AccordionDetails>
       </Accordion>
