@@ -13,7 +13,7 @@ export const Button = ({ text, ...props }: ButtonProps) => {
       <S.Button {...props}>{text}</S.Button>
       <S.TextWrapper>
         <S.TextBox>press</S.TextBox>
-        <S.TextBox black>Enter</S.TextBox>
+        <S.TextBox black> OK</S.TextBox>
       </S.TextWrapper>
     </S.ButtonWrapper>
   );
