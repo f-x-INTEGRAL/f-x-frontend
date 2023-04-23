@@ -81,7 +81,7 @@ const Completed = () => {
             예매하신 분은 아래의 계좌번호로 입금해주시길 바랍니다.
           </CompletedDescription>
           <CompletedDescription x20>
-            계좌: 국민 194602-04-188003 안정기
+            계좌: 카카오뱅크 3333-09-0806205 곽호윤
           </CompletedDescription>
           <CompletedDescription
             x18
