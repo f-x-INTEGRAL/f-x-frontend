@@ -141,12 +141,12 @@ export default function CustomizedAccordions() {
       >
         <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
           <Typography style={{ fontSize: '18px' }}>
-            Q. 계좌번호를 까먹었는데 어떻게 하나요?
+            Q. 티켓값을 입금해야할 계좌번호가 어떻게 되나요?
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            A. 카카오뱅크 3333-09-0806205 곽호윤 여기로 입급해주시면 됩니다.
+            A. '카카오뱅크 3333-09-0806205 곽호윤'으로 입급 부탁드립니다.
           </Typography>
         </AccordionDetails>
       </Accordion>
