@@ -448,8 +448,7 @@ const HomePage: NextPage = () => {
                   }
                 `}
               >
-                <strong>INTEGRAL</strong>은 한글로 ‘적분’입니다.
-                <br /> 이번 공연의 제목은 ‘INTEGRAL‘입니다.
+                <br /> 이번 공연의 제목은 ‘<strong>INTEGRAL</strong>‘입니다.
                 <br /> 작은 사각형들을 쌓아 넓이를 구하는 적분(INTEGRAL)처럼
                 <br /> 나봄이 2017년부터 지금까지 쌓아온 열정과 경험을 이번
                 공연에 담아내고자 하였습니다.
@@ -634,7 +633,7 @@ const HomePage: NextPage = () => {
               </FooterContent>
               <FooterContent
                 style={{ cursor: 'pointer' }}
-                onClick={() => router.push('/qna')}
+                onClick={() => router.push('/faq')}
               >
                 자주 묻는 질문
               </FooterContent>
