@@ -9,6 +9,7 @@ const nextConfig = {
   reactStrictMode: true,
   sentry: {
     tunnelRoute: '/monitoring-tunnel',
+    hideSourceMaps: true,
   },
   async rewrites() {
     return [
