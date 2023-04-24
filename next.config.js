@@ -26,10 +26,10 @@ const sentryWebpackPluginOptions = {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
 };
-
 module.exports = withSentryConfig(
   module.exports,
   { silent: true },
+  { productionBrowserSourceMaps: false },
   { hideSourcemaps: true }
 );
 
