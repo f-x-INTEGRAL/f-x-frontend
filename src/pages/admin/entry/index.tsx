@@ -6,6 +6,7 @@ import axios from 'axios';
 import styled from '@emotion/styled';
 import Symbol from '../../../assets/images/Symbol.png';
 import { useRouter } from 'next/router';
+import { useCookies } from 'react-cookie';
 
 export const EntryWrapper = styled.div`
   display: flex;
@@ -16,6 +17,10 @@ export const EntryWrapper = styled.div`
 
 const adminEntryPage: NextPage = () => {
   const [adminPass, setAdminPass] = useState('');
+  const [cookies, setCookie] = useCookies(['loginCookie']);
+
+  const expireDate = new Date();
+  expireDate.setMinutes(expireDate.getMinutes() + 10); // 시간 얼마나 적용되는지 확인 하려고 10분으로 임시 저장함
 
   const onChangeAdminPass = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAdminPass(e.target.value);
@@ -24,18 +29,27 @@ const adminEntryPage: NextPage = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        'https://fx.ggos3.xyz/admin/login',
-        {
-          password: adminPass,
-        },
-        {
-          withCredentials: true,
-          headers: {
-            'Content-Type': 'application/json',
+      const res = await axios
+        .post(
+          'https://fx.ggos3.xyz/admin/login',
+          {
+            password: adminPass,
           },
-        }
-      );
+          {
+            withCredentials: true,
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        )
+        .then((res) => {
+          setCookie('loginCookie', res.data.cookie, {
+            path: '/',
+            expires: expireDate,
+            secure: true,
+          });
+          console.log(res);
+        });
     } catch (e) {
       console.log(e);
     }
