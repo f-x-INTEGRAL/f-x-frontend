@@ -8,6 +8,8 @@ const { withSentryConfig } = require('@sentry/nextjs');
 const nextConfig = {
   reactStrictMode: true,
   sentry: {
+    disableServerWebpackPlugin: true,
+    disableClientWebpackPlugin: true,
     tunnelRoute: '/monitoring-tunnel',
     hideSourceMaps: true,
   },
