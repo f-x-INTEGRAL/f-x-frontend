@@ -5,6 +5,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import styled from '@emotion/styled';
 import Symbol from '../../../assets/images/Symbol.png';
+import { useRouter } from 'next/router';
 
 export const EntryWrapper = styled.div`
   display: flex;
@@ -39,6 +40,8 @@ const adminEntryPage: NextPage = () => {
       console.log(e);
     }
   };
+
+  const router = useRouter();
   return (
     <Layout>
       <EntryWrapper>
@@ -54,7 +57,11 @@ const adminEntryPage: NextPage = () => {
             onChange={onChangeAdminPass}
             placeholder="Writing admin password..."
           />
-          <Button text="OK" type="submit" />
+          <Button
+            text="OK"
+            type="submit"
+            onClick={() => router.push('/admin/main')}
+          />
         </form>
       </EntryWrapper>
     </Layout>
