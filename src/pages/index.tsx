@@ -99,7 +99,7 @@ export const MainDescription = styled.p`
   color: #757575;
 
   @media (max-width: 768px) {
-    font-size: 13px;
+    font-size: 15px;
   }
 `;
 
@@ -164,8 +164,8 @@ export const TitleDescription = styled.p`
   font-size: 20px;
 
   @media (max-width: 768px) {
-    width: 85%;
-    font-size: 12px;
+    width: 90%;
+    font-size: 14px;
   }
 `;
 
@@ -444,7 +444,7 @@ const HomePage: NextPage = () => {
               <TitleDescription
                 css={css`
                   @media (max-width: 768px) {
-                    width: 90%;
+                    width: 95%;
                   }
                 `}
               >
@@ -515,7 +515,15 @@ const HomePage: NextPage = () => {
             <MainLineContainer style={{ padding: '200px 0 0 0' }}>
               <MainLineText>History</MainLineText>
               <MainLine />
-              <MainLineText>Team Member</MainLineText>
+              <MainLineText
+                css={css`
+                  @media (max-width: 768px) {
+                    padding-left: 80px;
+                  }
+                `}
+              >
+                Team Member
+              </MainLineText>
             </MainLineContainer>
           </Layout>
         </MainSecondContainer>
