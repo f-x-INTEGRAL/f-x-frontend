@@ -39,6 +39,7 @@ const adminMainPage = () => {
   useEffect(() => {
     const getDatas = async () => {
       const data = await getUsers();
+      console.log(data);
       setUsers(data);
     };
     getDatas();
