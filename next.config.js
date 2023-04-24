@@ -10,6 +10,14 @@ const nextConfig = {
   sentry: {
     tunnelRoute: '/monitoring-tunnel',
   },
+  async rewrites() {
+    return [
+      {
+        source: '/admin',
+        destination: '/admin/entry',
+      },
+    ];
+  },
 };
 const sentryWebpackPluginOptions = {
   // Additional config options for the Sentry Webpack plugin. Keep in mind that
@@ -26,10 +34,10 @@ const sentryWebpackPluginOptions = {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
 };
-
 module.exports = withSentryConfig(
   module.exports,
   { silent: true },
+  { productionBrowserSourceMaps: false },
   { hideSourcemaps: true }
 );
 
