@@ -2,7 +2,7 @@ import React, { NextPage } from 'next';
 import Image from 'next/image';
 import { Input, Layout, MainTitle, Button } from '@/components';
 import { useState } from 'react';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import styled from '@emotion/styled';
 import Symbol from '../../../assets/images/Symbol.png';
 import { useRouter } from 'next/router';
@@ -22,41 +22,41 @@ const adminEntryPage: NextPage = () => {
   const expireDate = new Date();
   expireDate.setMinutes(expireDate.getMinutes() + 10); // 시간 얼마나 적용되는지 확인 하려고 10분으로 임시 저장함
 
-  const onChangeAdminPass = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAdminPass(e.target.value);
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await axios
-        .post(
-          'https://fx.ggos3.xyz/admin/login',
-          {
-            password: adminPass,
+      const response: AxiosResponse<any, any> | void = await axios.post(
+        'https://fx.ggos3.xyz/admin/login',
+        {
+          password: adminPass,
+        },
+        {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json',
           },
-          {
-            withCredentials: true,
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        )
-        .then((res) => {
-          const setCookieHeader = Response.headers('set-cookie');
-          console.log(Response.headers);
-          if (setCookieHeader) {
-            setCookie('loginCookie', setCookieHeader, {
-              path: '/',
-              expires: expireDate,
-              secure: true,
-            });
-            console.log(res);
-          }
-        });
+        }
+      );
+      if (response) {
+        const headers = response.headers;
+        const setCookieHeader = headers['set-cookie'];
+        console.log(headers);
+        if (setCookieHeader) {
+          setCookie('loginCookie', setCookieHeader, {
+            path: '/',
+            expires: expireDate,
+            secure: true,
+          });
+          console.log(response);
+        }
+      }
     } catch (e) {
       console.log(e);
     }
+  };
+
+  const onChangeAdminPass = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAdminPass(e.target.value);
   };
 
   const router = useRouter();
