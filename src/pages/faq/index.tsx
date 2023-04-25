@@ -130,7 +130,7 @@ export default function CustomizedAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            A. 5.12(금) 오후 5시까지 가능합니다. 취소 방법은 문자로
+            A. 5.12(금) 오후 1시까지 가능합니다. 취소 방법은 문자로
             안내드립니다.
           </Typography>
         </AccordionDetails>
