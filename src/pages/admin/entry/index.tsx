@@ -43,12 +43,17 @@ const adminEntryPage: NextPage = () => {
           }
         )
         .then((res) => {
-          setCookie('loginCookie', res.data.cookie, {
-            path: '/',
-            expires: expireDate,
-            secure: true,
-          });
-          console.log(res);
+          const setCookieHeader = res.headers['set-cookie']; // 응답 객체에서 Set-Cookie 추출하기
+
+          if (setCookieHeader) {
+            setCookie('loginCookie', setCookieHeader, {
+              // 추출한 Set-Cookie 값을 쿠키에 저장하기
+              path: '/',
+              expires: expireDate,
+              secure: true,
+            });
+            console.log(res);
+          }
         });
     } catch (e) {
       console.log(e);
