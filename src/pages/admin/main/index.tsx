@@ -104,32 +104,28 @@ const adminMainPage = () => {
         </DashboardThead>
         <DashboardTbody>
           <tr>
-            <DashboardTbodyTd>1</DashboardTbodyTd>
-            <DashboardTbodyTd>안기모</DashboardTbodyTd>
-            <DashboardTbodyTd>01012345678</DashboardTbodyTd>
-            <DashboardTbodyTd>4명</DashboardTbodyTd>
-            <DashboardTbodyTd>
-              {paymentConfirm ? '입금 완료' : '입금 대기'}
-              <ConfirmButton
-                onClick={() => setPaymentConfirm(!paymentConfirm)}
-                style={{
-                  color: paymentConfirm ? '#DF013A' : '#62a1f1',
-                }}
-              >
-                {paymentConfirm ? 'X' : 'O'}
-              </ConfirmButton>
-            </DashboardTbodyTd>
+            {users.map((user) => (
+              <li key={user.id}>
+                <DashboardTbodyTd>{user.id}</DashboardTbodyTd>
+                <DashboardTbodyTd>{user.name}</DashboardTbodyTd>
+                <DashboardTbodyTd>{user.phoneNumber}</DashboardTbodyTd>
+                <DashboardTbodyTd>{user.quantity}명</DashboardTbodyTd>
+                <DashboardTbodyTd>
+                  {paymentConfirm ? '입금 완료' : '입금 대기'}
+                  <ConfirmButton
+                    onClick={() => setPaymentConfirm(!paymentConfirm)}
+                    style={{
+                      color: paymentConfirm ? '#DF013A' : '#62a1f1',
+                    }}
+                  >
+                    {paymentConfirm ? 'X' : 'O'}
+                  </ConfirmButton>
+                </DashboardTbodyTd>
+              </li>
+            ))}
           </tr>
         </DashboardTbody>
       </DashboardTable>
-      {/* {users.map((user) => (
-        <li key={user.id}>
-          <p>{user.id}</p>
-          <p>{user.name}</p>
-          <p>{user.phoneNumber}</p>
-          <p>{user.quantity}명</p>
-        </li>
-      ))} */}
     </Layout>
   );
 };

@@ -19,9 +19,6 @@ const adminEntryPage: NextPage = () => {
   const [adminPass, setAdminPass] = useState('');
   const [cookies, setCookie] = useCookies(['loginCookie']);
 
-  const expireDate = new Date();
-  expireDate.setMinutes(expireDate.getMinutes() + 10); // 시간 얼마나 적용되는지 확인 하려고 10분으로 임시 저장함
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
@@ -43,7 +40,6 @@ const adminEntryPage: NextPage = () => {
           const cookieString = setCookieHeader.join(';');
           setCookie('loginCookie', cookieString, {
             path: '/',
-            expires: expireDate,
             secure: true,
           });
           console.log(response);
