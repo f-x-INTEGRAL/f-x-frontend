@@ -102,6 +102,8 @@ const adminMainPage = () => {
             css={css`
               background-color: white;
               border-bottom: 1px solid #000;
+              display: flex;
+              flex-direction: column;
             `}
           >
             {users.map((user) => (
@@ -110,17 +112,17 @@ const adminMainPage = () => {
               </DashboardTheadTh>
             ))}
             {users.map((user) => (
-              <DashboardTheadTh key={user.id}>
+              <DashboardTheadTh key={user.name}>
                 <DashboardTbodyTd>{user.name}</DashboardTbodyTd>
               </DashboardTheadTh>
             ))}
             {users.map((user) => (
-              <DashboardTheadTh key={user.id}>
+              <DashboardTheadTh key={user.phoneNumber}>
                 <DashboardTbodyTd>{user.phoneNumber}</DashboardTbodyTd>
               </DashboardTheadTh>
             ))}
             {users.map((user) => (
-              <DashboardTheadTh key={user.id}>
+              <DashboardTheadTh key={user.quantity}>
                 <DashboardTbodyTd>{user.quantity}</DashboardTbodyTd>
               </DashboardTheadTh>
             ))}
