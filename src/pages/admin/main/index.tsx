@@ -96,32 +96,20 @@ const adminMainPage = () => {
         <DashboardThead>
           <tr>
             <DashboardTheadTh>ID</DashboardTheadTh>
-            {users.map((user) => (
-              <ul key={user.id}>
-                <DashboardTbodyTd>{user.id}</DashboardTbodyTd>
-              </ul>
-            ))}
             <DashboardTheadTh>이름</DashboardTheadTh>
-            {users.map((user) => (
-              <ul key={user.id}>
-                <DashboardTbodyTd>{user.name}</DashboardTbodyTd>
-              </ul>
-            ))}
             <DashboardTheadTh>전화번호</DashboardTheadTh>
-            {users.map((user) => (
-              <ul key={user.id}>
-                <DashboardTbodyTd>{user.phoneNumber}</DashboardTbodyTd>
-              </ul>
-            ))}
             <DashboardTheadTh>인원</DashboardTheadTh>
-            {users.map((user) => (
-              <ul key={user.id}>
-                <DashboardTbodyTd>{user.quantity}명</DashboardTbodyTd>
-              </ul>
-            ))}
             <DashboardTheadTh>입금확인</DashboardTheadTh>
+          </tr>
+        </DashboardThead>
+        <DashboardTbody>
+          <tr>
             {users.map((user) => (
-              <ul key={user.id}>
+              <li key={user.id}>
+                <DashboardTbodyTd>{user.id}</DashboardTbodyTd>
+                <DashboardTbodyTd>{user.name}</DashboardTbodyTd>
+                <DashboardTbodyTd>{user.phoneNumber}</DashboardTbodyTd>
+                <DashboardTbodyTd>{user.quantity}명</DashboardTbodyTd>
                 <DashboardTbodyTd>
                   {paymentConfirm ? '입금 완료' : '입금 대기'}
                   <ConfirmButton
@@ -133,10 +121,10 @@ const adminMainPage = () => {
                     {paymentConfirm ? 'X' : 'O'}
                   </ConfirmButton>
                 </DashboardTbodyTd>
-              </ul>
+              </li>
             ))}
           </tr>
-        </DashboardThead>
+        </DashboardTbody>
       </DashboardTable>
     </Layout>
   );
