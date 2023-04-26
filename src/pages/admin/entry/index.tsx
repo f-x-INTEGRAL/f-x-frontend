@@ -38,9 +38,7 @@ const adminEntryPage: NextPage = () => {
         }
       );
       if (response) {
-        const headers = response.headers;
-        const setCookieHeader = headers['set-cookie'];
-        console.log(headers);
+        const setCookieHeader = response.headers['set-cookie'];
         if (setCookieHeader) {
           const cookieString = setCookieHeader.join(';');
           setCookie('loginCookie', cookieString, {
