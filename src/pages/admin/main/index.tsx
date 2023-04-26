@@ -1,4 +1,5 @@
 import { Layout } from '@/components';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -105,7 +106,12 @@ const adminMainPage = () => {
         <DashboardTbody>
           <tr>
             {users.map((user) => (
-              <li key={user.id}>
+              <DashboardTheadTh
+                css={css`
+                  background-color: white;
+                `}
+                key={user.id}
+              >
                 <DashboardTbodyTd>{user.id}</DashboardTbodyTd>
                 <DashboardTbodyTd>{user.name}</DashboardTbodyTd>
                 <DashboardTbodyTd>{user.phoneNumber}</DashboardTbodyTd>
@@ -121,7 +127,7 @@ const adminMainPage = () => {
                     {paymentConfirm ? 'X' : 'O'}
                   </ConfirmButton>
                 </DashboardTbodyTd>
-              </li>
+              </DashboardTheadTh>
             ))}
           </tr>
         </DashboardTbody>
