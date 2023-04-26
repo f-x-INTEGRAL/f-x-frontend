@@ -105,7 +105,7 @@ const adminMainPage = () => {
         <DashboardTbody>
           <tr>
             {users.map((user) => (
-              <li key={user.id}>
+              <ul key={user.id}>
                 <DashboardTbodyTd>{user.id}</DashboardTbodyTd>
                 <DashboardTbodyTd>{user.name}</DashboardTbodyTd>
                 <DashboardTbodyTd>{user.phoneNumber}</DashboardTbodyTd>
@@ -121,7 +121,7 @@ const adminMainPage = () => {
                     {paymentConfirm ? 'X' : 'O'}
                   </ConfirmButton>
                 </DashboardTbodyTd>
-              </li>
+              </ul>
             ))}
           </tr>
         </DashboardTbody>
