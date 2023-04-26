@@ -65,7 +65,10 @@ interface UserInfo {
 const getUsers = async (): Promise<UserInfo[]> => {
   try {
     const res = await axios.get<UserInfo[]>(
-      'https://fx.ggos3.xyz/admin/find-all'
+      'https://fx.ggos3.xyz/admin/find-all',
+      {
+        withCredentials: true,
+      }
     );
     return res.data;
   } catch (error) {
