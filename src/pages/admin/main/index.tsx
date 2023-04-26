@@ -4,12 +4,6 @@ import styled from '@emotion/styled';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const DashboardWrapper = styled.div`
-  width: 1000px;
-  height: 1000px;
-  margin: auto 0;
-`;
-
 const DashboardTable = styled.table`
   width: 100%;
   border-collapse: collapse;
@@ -104,18 +98,34 @@ const adminMainPage = () => {
           </tr>
         </DashboardThead>
         <DashboardTbody>
-          <tr>
+          <tr
+            css={css`
+              background-color: white;
+              border-bottom: 1px solid #000;
+            `}
+          >
             {users.map((user) => (
-              <DashboardTheadTh
-                css={css`
-                  background-color: white;
-                `}
-                key={user.id}
-              >
+              <DashboardTheadTh key={user.id}>
                 <DashboardTbodyTd>{user.id}</DashboardTbodyTd>
+              </DashboardTheadTh>
+            ))}
+            {users.map((user) => (
+              <DashboardTheadTh key={user.id}>
                 <DashboardTbodyTd>{user.name}</DashboardTbodyTd>
+              </DashboardTheadTh>
+            ))}
+            {users.map((user) => (
+              <DashboardTheadTh key={user.id}>
                 <DashboardTbodyTd>{user.phoneNumber}</DashboardTbodyTd>
-                <DashboardTbodyTd>{user.quantity}명</DashboardTbodyTd>
+              </DashboardTheadTh>
+            ))}
+            {users.map((user) => (
+              <DashboardTheadTh key={user.id}>
+                <DashboardTbodyTd>{user.quantity}</DashboardTbodyTd>
+              </DashboardTheadTh>
+            ))}
+            {users.map((user) => (
+              <DashboardTheadTh key={user.id}>
                 <DashboardTbodyTd>
                   {paymentConfirm ? '입금 완료' : '입금 대기'}
                   <ConfirmButton
