@@ -42,7 +42,8 @@ const adminEntryPage: NextPage = () => {
         const setCookieHeader = headers['set-cookie'];
         console.log(headers);
         if (setCookieHeader) {
-          setCookie('loginCookie', setCookieHeader, {
+          const cookieString = setCookieHeader.join(';');
+          setCookie('loginCookie', cookieString, {
             path: '/',
             expires: expireDate,
             secure: true,
