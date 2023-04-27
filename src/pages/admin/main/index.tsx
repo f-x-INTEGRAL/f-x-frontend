@@ -52,11 +52,7 @@ const ConfirmButton = styled.button`
 `;
 
 const DeleteButton = styled.button`
-<<<<<<< HEAD
-  margin-left: 55px;
-=======
   margin-left: 150px;
->>>>>>> a8aee6c27f0df2650af7860bd39ae0a98e8011f2
   width: 50px;
   height: 25px;
   font-size: 16px;
@@ -102,7 +98,6 @@ const adminMainPage = () => {
 
   const onClickStatus = () => {
     const waitingUser = users.find((user) => user.status === 'WAITING');
-<<<<<<< HEAD
     const userId = users.find((user) => user.id);
     if (userId !== null && userId !== undefined) {
       const strUserId = userId.toString();
@@ -128,96 +123,95 @@ const adminMainPage = () => {
           }
         );
       }
-=======
-    const conformedUser = users.find((user) => user.status === 'CONFORMED');
-    if (waitingUser) {
-      axios.patch(
-        `https://fx.ggos3.xyz/admin/update/${waitingUser.id}`,
-        {
-          status: 'CONFORMED',
-        },
-        {
-          withCredentials: true,
-        }
-      );
-    } else if (conformedUser) {
-      axios.patch(
-        `https://fx.ggos3.xyz/admin/update/${conformedUser.id}`,
-        {
-          status: 'WAITING',
-        },
-        {
-          withCredentials: true,
-        }
-      );
->>>>>>> a8aee6c27f0df2650af7860bd39ae0a98e8011f2
+      const conformedUser = users.find((user) => user.status === 'CONFORMED');
+      if (waitingUser) {
+        axios.patch(
+          `https://fx.ggos3.xyz/admin/update/${waitingUser.id}`,
+          {
+            status: 'CONFORMED',
+          },
+          {
+            withCredentials: true,
+          }
+        );
+      } else if (conformedUser) {
+        axios.patch(
+          `https://fx.ggos3.xyz/admin/update/${conformedUser.id}`,
+          {
+            status: 'WAITING',
+          },
+          {
+            withCredentials: true,
+          }
+        );
+      }
     }
-  };
 
-  const onClickDeleteUser = () => {
-    const userId = users.find((user) => user.id);
+    const onClickDeleteUser = () => {
+      const userId = users.find((user) => user.id);
 
-    if (userId) {
-      axios.delete(`https://fx.ggos3.xyz/admin/delete/${userId}`, {
-        withCredentials: true,
-      });
-    }
-  };
-
-  useEffect(() => {
-    const getDatas = async () => {
-      const data = await getUsers();
-      setUsers(data);
+      if (userId) {
+        axios.delete(`https://fx.ggos3.xyz/admin/delete/${userId}`, {
+          withCredentials: true,
+        });
+      }
     };
-    getDatas();
-  }, []);
 
-  return (
-    <Layout>
-      <DashboardTable>
-        <DashboardThead>
-          <tr>
-            <DashboardTheadTh>ID</DashboardTheadTh>
-            <DashboardTheadTh>이름</DashboardTheadTh>
-            <DashboardTheadTh>전화번호</DashboardTheadTh>
-            <DashboardTheadTh>인원</DashboardTheadTh>
-            <DashboardTheadTh>입금확인</DashboardTheadTh>
-          </tr>
-        </DashboardThead>
-        <DashboardTbody>
-          {users.map((user) => (
-            <tr
-              css={css`
-                background-color: white;
-                border-bottom: 1px solid #000;
-              `}
-            >
-              <DashboardTbodyTd>{user.id}</DashboardTbodyTd>
-              <DashboardTbodyTd>{user.name}</DashboardTbodyTd>
-              <DashboardTbodyTd>{user.phoneNumber}</DashboardTbodyTd>
-              <DashboardTbodyTd>{user.quantity}</DashboardTbodyTd>
-              <DashboardTbodyTd>
-                {user.status === 'CONFORMED' ? '입금 완료' : '입금 대기'}
-                <ConfirmButton
-                  onClick={onClickStatus}
-                  style={{
-                    color: user.status === 'CONFORMED' ? '#62a1f1' : '#DF013A',
-                    border:
-                      user.status === 'CONFORMED'
-                        ? '1px solid #62a1f1'
-                        : '1px solid #DF013A',
-                  }}
-                >
-                  {user.status === 'CONFORMED' ? 'O' : 'X'}
-                </ConfirmButton>
-                <DeleteButton onClick={onClickDeleteUser}>삭제</DeleteButton>
-              </DashboardTbodyTd>
+    useEffect(() => {
+      const getDatas = async () => {
+        const data = await getUsers();
+        setUsers(data);
+      };
+      getDatas();
+    }, []);
+
+    return (
+      <Layout>
+        <DashboardTable>
+          <DashboardThead>
+            <tr>
+              <DashboardTheadTh>ID</DashboardTheadTh>
+              <DashboardTheadTh>이름</DashboardTheadTh>
+              <DashboardTheadTh>전화번호</DashboardTheadTh>
+              <DashboardTheadTh>인원</DashboardTheadTh>
+              <DashboardTheadTh>입금확인</DashboardTheadTh>
             </tr>
-          ))}
-        </DashboardTbody>
-      </DashboardTable>
-    </Layout>
-  );
+          </DashboardThead>
+          <DashboardTbody>
+            {users.map((user) => (
+              <tr
+                css={css`
+                  background-color: white;
+                  border-bottom: 1px solid #000;
+                `}
+              >
+                <DashboardTbodyTd>{user.id}</DashboardTbodyTd>
+                <DashboardTbodyTd>{user.name}</DashboardTbodyTd>
+                <DashboardTbodyTd>{user.phoneNumber}</DashboardTbodyTd>
+                <DashboardTbodyTd>{user.quantity}</DashboardTbodyTd>
+                <DashboardTbodyTd>
+                  {user.status === 'CONFORMED' ? '입금 완료' : '입금 대기'}
+                  <ConfirmButton
+                    onClick={onClickStatus}
+                    style={{
+                      color:
+                        user.status === 'CONFORMED' ? '#62a1f1' : '#DF013A',
+                      border:
+                        user.status === 'CONFORMED'
+                          ? '1px solid #62a1f1'
+                          : '1px solid #DF013A',
+                    }}
+                  >
+                    {user.status === 'CONFORMED' ? 'O' : 'X'}
+                  </ConfirmButton>
+                  <DeleteButton onClick={onClickDeleteUser}>삭제</DeleteButton>
+                </DashboardTbodyTd>
+              </tr>
+            ))}
+          </DashboardTbody>
+        </DashboardTable>
+      </Layout>
+    );
+  };
 };
-
 export default adminMainPage;
