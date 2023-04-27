@@ -11,28 +11,23 @@ const DashboardTable = styled.table`
   text-align: left;
   margin-top: 50px;
 `;
-
 const DashboardThead = styled.thead`
   background-color: #b8d7ff;
 `;
-
 const DashboardTheadTh = styled.th`
   padding: 15px 0 15px 15px;
   color: #abaaaa;
   font-size: 19px;
   font-weight: 400;
 `;
-
 const DashboardTbody = styled.tbody`
   border-bottom: 2px solid #abaaaa;
 `;
-
 const DashboardTbodyTd = styled.td`
   padding: 15px 0 15px 15px;
   color: #abaaaa;
   font-size: 18px;
 `;
-
 const ConfirmButton = styled.button`
   margin-left: 10px;
   width: 25px;
@@ -42,42 +37,18 @@ const ConfirmButton = styled.button`
   border: 1px solid #62a1f1;
   box-shadow: 1px 1px 5px #62a1f1;
   border-radius: 30%;
-
   &:hover {
     background-color: #b8d7ff;
     transition: 0.3s;
   }
-
   cursor: pointer;
 `;
-
-const DeleteButton = styled.button`
-  margin-left: 150px;
-  width: 50px;
-  height: 25px;
-  font-size: 16px;
-  background: none;
-  border: 1px solid #b40404;
-  box-shadow: 1px 1px 5px #b40404;
-  border-radius: 5px;
-  color: #b40404;
-
-  &:hover {
-    background-color: #f78181;
-    transition: 0.3s;
-  }
-
-  cursor: pointer;
-`;
-
 interface UserInfo {
   id: number;
   name: string;
   phoneNumber: string;
   quantity: string;
-  status: string;
 }
-
 const getUsers = async (): Promise<UserInfo[]> => {
   try {
     const res = await axios.get<UserInfo[]>(
@@ -92,10 +63,17 @@ const getUsers = async (): Promise<UserInfo[]> => {
     return [];
   }
 };
-
 const adminMainPage = () => {
   const [users, setUsers] = useState<UserInfo[]>([]);
-
+  const [paymentConfirm, setPaymentConfirm] = useState<boolean>(false);
+  useEffect(() => {
+    const getDatas = async () => {
+      const data = await getUsers();
+      console.log(data);
+      setUsers(data);
+    };
+    getDatas();
+  }, []);
   return (
     <Layout>
       <DashboardTable>
@@ -121,17 +99,14 @@ const adminMainPage = () => {
               <DashboardTbodyTd>{user.phoneNumber}</DashboardTbodyTd>
               <DashboardTbodyTd>{user.quantity}</DashboardTbodyTd>
               <DashboardTbodyTd>
-                {user.status === 'CONFORMED' ? '입금 완료' : '입금 대기'}
+                {paymentConfirm ? '입금 완료' : '입금 대기'}
                 <ConfirmButton
+                  onClick={() => setPaymentConfirm(!paymentConfirm)}
                   style={{
-                    color: user.status === 'CONFORMED' ? '#62a1f1' : '#DF013A',
-                    border:
-                      user.status === 'CONFORMED'
-                        ? '1px solid #62a1f1'
-                        : '1px solid #DF013A',
+                    color: paymentConfirm ? '#DF013A' : '#62a1f1',
                   }}
                 >
-                  {user.status === 'CONFORMED' ? 'O' : 'X'}
+                  {paymentConfirm ? 'X' : 'O'}
                 </ConfirmButton>
               </DashboardTbodyTd>
             </tr>
