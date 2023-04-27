@@ -52,7 +52,11 @@ const ConfirmButton = styled.button`
 `;
 
 const DeleteButton = styled.button`
+<<<<<<< HEAD
   margin-left: 55px;
+=======
+  margin-left: 150px;
+>>>>>>> a8aee6c27f0df2650af7860bd39ae0a98e8011f2
   width: 50px;
   height: 25px;
   font-size: 16px;
@@ -98,6 +102,7 @@ const adminMainPage = () => {
 
   const onClickStatus = () => {
     const waitingUser = users.find((user) => user.status === 'WAITING');
+<<<<<<< HEAD
     const userId = users.find((user) => user.id);
     if (userId !== null && userId !== undefined) {
       const strUserId = userId.toString();
@@ -123,6 +128,29 @@ const adminMainPage = () => {
           }
         );
       }
+=======
+    const conformedUser = users.find((user) => user.status === 'CONFORMED');
+    if (waitingUser) {
+      axios.patch(
+        `https://fx.ggos3.xyz/admin/update/${waitingUser.id}`,
+        {
+          status: 'CONFORMED',
+        },
+        {
+          withCredentials: true,
+        }
+      );
+    } else if (conformedUser) {
+      axios.patch(
+        `https://fx.ggos3.xyz/admin/update/${conformedUser.id}`,
+        {
+          status: 'WAITING',
+        },
+        {
+          withCredentials: true,
+        }
+      );
+>>>>>>> a8aee6c27f0df2650af7860bd39ae0a98e8011f2
     }
   };
 
