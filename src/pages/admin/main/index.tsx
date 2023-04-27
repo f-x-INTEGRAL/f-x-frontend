@@ -51,11 +51,30 @@ const ConfirmButton = styled.button`
   cursor: pointer;
 `;
 
+const DeleteButton = styled.button`
+  margin-left: 10px;
+  width: 25px;
+  height: 25px;
+  font-size: 16px;
+  background: none;
+  border: 1px solid #b40404;
+  box-shadow: 1px 1px 5px #b40404;
+  border-radius: 30%;
+
+  &:hover {
+    background-color: #f78181;
+    transition: 0.3s;
+  }
+
+  cursor: pointer;
+`;
+
 interface UserInfo {
   id: number;
   name: string;
   phoneNumber: string;
   quantity: string;
+  status: string;
 }
 
 const getUsers = async (): Promise<UserInfo[]> => {
@@ -76,6 +95,31 @@ const getUsers = async (): Promise<UserInfo[]> => {
 const adminMainPage = () => {
   const [users, setUsers] = useState<UserInfo[]>([]);
   const [paymentConfirm, setPaymentConfirm] = useState<boolean>(false);
+
+  const onClickStatus = () => {
+    const waitingUser = users.find((user) => user.status === 'WAITING');
+    if (waitingUser) {
+      axios.patch(
+        `https://fx.ggos3.xyz/admin/update/${waitingUser.id}`,
+        {
+          status: 'CONFORMED',
+        },
+        {
+          withCredentials: true,
+        }
+      );
+    }
+  };
+
+  const onClickDeleteUser = () => {
+    const userId = users.find((user) => user.id);
+
+    if (userId) {
+      axios.delete(`https://fx.ggos3.xyz/admin/delete/${userId}`, {
+        withCredentials: true,
+      });
+    }
+  };
 
   useEffect(() => {
     const getDatas = async () => {
@@ -111,15 +155,16 @@ const adminMainPage = () => {
               <DashboardTbodyTd>{user.phoneNumber}</DashboardTbodyTd>
               <DashboardTbodyTd>{user.quantity}</DashboardTbodyTd>
               <DashboardTbodyTd>
-                {paymentConfirm ? '입금 완료' : '입금 대기'}
+                {user.status === 'CONFORMED' ? '입금 완료' : '입금 대기'}
                 <ConfirmButton
-                  onClick={() => setPaymentConfirm(!paymentConfirm)}
+                  onClick={onClickStatus}
                   style={{
-                    color: paymentConfirm ? '#DF013A' : '#62a1f1',
+                    color: user.status === 'CONFORMED' ? '#62a1f1' : '#DF013A',
                   }}
                 >
-                  {paymentConfirm ? 'X' : 'O'}
+                  {user.status === 'CONFORMED' ? 'O' : 'X'}
                 </ConfirmButton>
+                <DeleteButton onClick={onClickDeleteUser}>⨉</DeleteButton>
               </DashboardTbodyTd>
             </tr>
           ))}
