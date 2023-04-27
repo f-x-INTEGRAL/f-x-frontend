@@ -26,7 +26,7 @@ module.exports = withSentryConfig(
         },
       ];
     },
-
+    //vercel 연결
     // Sentry 설정
     sentry: {
       disableServerWebpackPlugin: true,
