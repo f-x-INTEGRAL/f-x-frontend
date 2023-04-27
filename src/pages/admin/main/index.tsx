@@ -121,7 +121,6 @@ const adminMainPage = () => {
                   {paymentConfirm ? 'X' : 'O'}
                 </ConfirmButton>
               </DashboardTbodyTd>
-              o
             </tr>
           ))}
         </DashboardTbody>
