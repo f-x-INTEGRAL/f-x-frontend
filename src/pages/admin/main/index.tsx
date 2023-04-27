@@ -2,6 +2,7 @@ import { Layout } from '@/components';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import axios from 'axios';
+import React from 'react';
 import { useEffect, useState } from 'react';
 
 const DashboardTable = styled.table`
@@ -98,50 +99,31 @@ const adminMainPage = () => {
           </tr>
         </DashboardThead>
         <DashboardTbody>
-          <tr
-            css={css`
-              background-color: white;
-              border-bottom: 1px solid #000;
-              display: flex;
-              flex-direction: column;
-            `}
-          >
-            {users.map((user) => (
-              <DashboardTheadTh key={user.id}>
-                <DashboardTbodyTd>{user.id}</DashboardTbodyTd>
-              </DashboardTheadTh>
-            ))}
-            {users.map((user) => (
-              <DashboardTheadTh key={user.name}>
-                <DashboardTbodyTd>{user.name}</DashboardTbodyTd>
-              </DashboardTheadTh>
-            ))}
-            {users.map((user) => (
-              <DashboardTheadTh key={user.phoneNumber}>
-                <DashboardTbodyTd>{user.phoneNumber}</DashboardTbodyTd>
-              </DashboardTheadTh>
-            ))}
-            {users.map((user) => (
-              <DashboardTheadTh key={user.quantity}>
-                <DashboardTbodyTd>{user.quantity}</DashboardTbodyTd>
-              </DashboardTheadTh>
-            ))}
-            {users.map((user) => (
-              <DashboardTheadTh key={user.id}>
-                <DashboardTbodyTd>
-                  {paymentConfirm ? '입금 완료' : '입금 대기'}
-                  <ConfirmButton
-                    onClick={() => setPaymentConfirm(!paymentConfirm)}
-                    style={{
-                      color: paymentConfirm ? '#DF013A' : '#62a1f1',
-                    }}
-                  >
-                    {paymentConfirm ? 'X' : 'O'}
-                  </ConfirmButton>
-                </DashboardTbodyTd>
-              </DashboardTheadTh>
-            ))}
-          </tr>
+          {users.map((user) => (
+            <tr
+              css={css`
+                background-color: white;
+                border-bottom: 1px solid #000;
+              `}
+            >
+              <DashboardTbodyTd>{user.id}</DashboardTbodyTd>
+              <DashboardTbodyTd>{user.name}</DashboardTbodyTd>
+              <DashboardTbodyTd>{user.phoneNumber}</DashboardTbodyTd>
+              <DashboardTbodyTd>{user.quantity}</DashboardTbodyTd>
+              <DashboardTbodyTd>
+                {paymentConfirm ? '입금 완료' : '입금 대기'}
+                <ConfirmButton
+                  onClick={() => setPaymentConfirm(!paymentConfirm)}
+                  style={{
+                    color: paymentConfirm ? '#DF013A' : '#62a1f1',
+                  }}
+                >
+                  {paymentConfirm ? 'X' : 'O'}
+                </ConfirmButton>
+              </DashboardTbodyTd>
+              o
+            </tr>
+          ))}
         </DashboardTbody>
       </DashboardTable>
     </Layout>
