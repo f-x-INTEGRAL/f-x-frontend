@@ -56,6 +56,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next", "virtual:56382752528f869b92d20fe4426d507c9a0dc7de160116b33ad1b7ee8276c5887fd4241a7a229414e7c03764987ce0b6d1ed5443811d26797919d815943f2bb8#npm:13.2.4"],\
             ["prettier", "npm:2.8.7"],\
             ["react", "npm:18.2.0"],\
+            ["react-cookie", "virtual:56382752528f869b92d20fe4426d507c9a0dc7de160116b33ad1b7ee8276c5887fd4241a7a229414e7c03764987ce0b6d1ed5443811d26797919d815943f2bb8#npm:4.1.1"],\
             ["react-dom", "virtual:56382752528f869b92d20fe4426d507c9a0dc7de160116b33ad1b7ee8276c5887fd4241a7a229414e7c03764987ce0b6d1ed5443811d26797919d815943f2bb8#npm:18.2.0"],\
             ["react-hook-form", "virtual:56382752528f869b92d20fe4426d507c9a0dc7de160116b33ad1b7ee8276c5887fd4241a7a229414e7c03764987ce0b6d1ed5443811d26797919d815943f2bb8#npm:7.43.9"],\
             ["typescript", "patch:typescript@npm%3A5.0.3#~builtin<compat/typescript>::version=5.0.3&hash=85af82"],\
@@ -1513,11 +1514,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@types/cookie", [\
+        ["npm:0.3.3", {\
+          "packageLocation": "./.yarn/cache/@types-cookie-npm-0.3.3-a5ddc16db3-450c930d79.zip/node_modules/@types/cookie/",\
+          "packageDependencies": [\
+            ["@types/cookie", "npm:0.3.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@types/estree", [\
         ["npm:1.0.0", {\
           "packageLocation": "./.yarn/cache/@types-estree-npm-1.0.0-eddde5b631-910d97fb70.zip/node_modules/@types/estree/",\
           "packageDependencies": [\
             ["@types/estree", "npm:1.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/hoist-non-react-statics", [\
+        ["npm:3.3.1", {\
+          "packageLocation": "./.yarn/cache/@types-hoist-non-react-statics-npm-3.3.1-c0081332b2-2c0778570d.zip/node_modules/@types/hoist-non-react-statics/",\
+          "packageDependencies": [\
+            ["@types/hoist-non-react-statics", "npm:3.3.1"],\
+            ["@types/react", "npm:18.0.33"],\
+            ["hoist-non-react-statics", "npm:3.3.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3873,6 +3894,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next", "virtual:56382752528f869b92d20fe4426d507c9a0dc7de160116b33ad1b7ee8276c5887fd4241a7a229414e7c03764987ce0b6d1ed5443811d26797919d815943f2bb8#npm:13.2.4"],\
             ["prettier", "npm:2.8.7"],\
             ["react", "npm:18.2.0"],\
+            ["react-cookie", "virtual:56382752528f869b92d20fe4426d507c9a0dc7de160116b33ad1b7ee8276c5887fd4241a7a229414e7c03764987ce0b6d1ed5443811d26797919d815943f2bb8#npm:4.1.1"],\
             ["react-dom", "virtual:56382752528f869b92d20fe4426d507c9a0dc7de160116b33ad1b7ee8276c5887fd4241a7a229414e7c03764987ce0b6d1ed5443811d26797919d815943f2bb8#npm:18.2.0"],\
             ["react-hook-form", "virtual:56382752528f869b92d20fe4426d507c9a0dc7de160116b33ad1b7ee8276c5887fd4241a7a229414e7c03764987ce0b6d1ed5443811d26797919d815943f2bb8#npm:7.43.9"],\
             ["typescript", "patch:typescript@npm%3A5.0.3#~builtin<compat/typescript>::version=5.0.3&hash=85af82"],\
@@ -5662,6 +5684,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-cookie", [\
+        ["npm:4.1.1", {\
+          "packageLocation": "./.yarn/cache/react-cookie-npm-4.1.1-90d4f0fcb5-b734dcad35.zip/node_modules/react-cookie/",\
+          "packageDependencies": [\
+            ["react-cookie", "npm:4.1.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:56382752528f869b92d20fe4426d507c9a0dc7de160116b33ad1b7ee8276c5887fd4241a7a229414e7c03764987ce0b6d1ed5443811d26797919d815943f2bb8#npm:4.1.1", {\
+          "packageLocation": "./.yarn/__virtual__/react-cookie-virtual-eb46ce6e4f/0/cache/react-cookie-npm-4.1.1-90d4f0fcb5-b734dcad35.zip/node_modules/react-cookie/",\
+          "packageDependencies": [\
+            ["react-cookie", "virtual:56382752528f869b92d20fe4426d507c9a0dc7de160116b33ad1b7ee8276c5887fd4241a7a229414e7c03764987ce0b6d1ed5443811d26797919d815943f2bb8#npm:4.1.1"],\
+            ["@types/hoist-non-react-statics", "npm:3.3.1"],\
+            ["@types/react", "npm:18.0.33"],\
+            ["hoist-non-react-statics", "npm:3.3.2"],\
+            ["react", "npm:18.2.0"],\
+            ["universal-cookie", "npm:4.0.4"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-dom", [\
         ["npm:18.2.0", {\
           "packageLocation": "./.yarn/cache/react-dom-npm-18.2.0-dd675bca1c-7d323310be.zip/node_modules/react-dom/",\
@@ -6519,6 +6566,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["unique-slug", "npm:3.0.0"],\
             ["imurmurhash", "npm:0.1.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["universal-cookie", [\
+        ["npm:4.0.4", {\
+          "packageLocation": "./.yarn/cache/universal-cookie-npm-4.0.4-aa9b4bcfbf-bb2bafa7eb.zip/node_modules/universal-cookie/",\
+          "packageDependencies": [\
+            ["universal-cookie", "npm:4.0.4"],\
+            ["@types/cookie", "npm:0.3.3"],\
+            ["cookie", "npm:0.4.2"]\
           ],\
           "linkType": "HARD"\
         }]\
