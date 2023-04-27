@@ -4,6 +4,7 @@ import { ThemeProvider } from '@emotion/react';
 import { global } from '@/styles/global';
 import { theme } from '@/styles/theme';
 import { Navbar } from '@/components';
+import { CookiesProvider } from 'react-cookie';
 import Head from 'next/head';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -14,7 +15,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>nabom</title>
       </Head>
-      <Component {...pageProps} />
+      <CookiesProvider>
+        <Component {...pageProps} />
+      </CookiesProvider>
     </ThemeProvider>
   );
 }

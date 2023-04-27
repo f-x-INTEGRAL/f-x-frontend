@@ -2,9 +2,11 @@ import React, { NextPage } from 'next';
 import Image from 'next/image';
 import { Input, Layout, MainTitle, Button } from '@/components';
 import { useState } from 'react';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import styled from '@emotion/styled';
 import Symbol from '../../../assets/images/Symbol.png';
+import { useRouter } from 'next/router';
+import { useCookies } from 'react-cookie';
 
 export const EntryWrapper = styled.div`
   display: flex;
@@ -15,15 +17,12 @@ export const EntryWrapper = styled.div`
 
 const adminEntryPage: NextPage = () => {
   const [adminPass, setAdminPass] = useState('');
-
-  const onChangeAdminPass = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAdminPass(e.target.value);
-  };
+  const [cookies, setCookie] = useCookies(['loginCookie']);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
+      const response: AxiosResponse<any, any> | void = await axios.post(
         'https://fx.ggos3.xyz/admin/login',
         {
           password: adminPass,
@@ -35,10 +34,27 @@ const adminEntryPage: NextPage = () => {
           },
         }
       );
+      if (response) {
+        const setCookieHeader = response.headers['set-cookie'];
+        if (setCookieHeader) {
+          const cookieString = setCookieHeader.join(';');
+          setCookie('loginCookie', cookieString, {
+            path: '/',
+            secure: true,
+          });
+          console.log(response);
+        }
+      }
     } catch (e) {
       console.log(e);
     }
   };
+
+  const onChangeAdminPass = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAdminPass(e.target.value);
+  };
+
+  const router = useRouter();
   return (
     <Layout>
       <EntryWrapper>
@@ -54,7 +70,11 @@ const adminEntryPage: NextPage = () => {
             onChange={onChangeAdminPass}
             placeholder="Writing admin password..."
           />
-          <Button text="OK" type="submit" />
+          <Button
+            text="OK"
+            type="submit"
+            onClick={() => router.push('/admin/main')}
+          />
         </form>
       </EntryWrapper>
     </Layout>

@@ -17,7 +17,7 @@ export const FormWrapper = styled.div`
 `;
 
 export const FormContainer = styled.div`
-  padding-top: 220px;
+  padding: 220px 0 50px 0;
 
   @media (max-width: 768px) {
     padding-top: 300px;
