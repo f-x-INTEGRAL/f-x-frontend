@@ -91,7 +91,7 @@ const adminMainPage = () => {
         ? 'CONFORMED'
         : 'WAITING';
     axios.patch(
-      `https://fx.ggos3.xyz/admin/status/${id}`,
+      `https://fx.ggos3.xyz/admin/update/${id}`,
       { status: newStatus },
       {
         withCredentials: true,
