@@ -121,10 +121,15 @@ const adminMainPage = () => {
   };
 
   const onClickDeleteUser = () => {
-    const userId = users.find((user) => user.id);
+    const userIdWaiting = users.find((user) => user.status === 'WAITING');
+    const userIdConformed = users.find((user) => user.status === 'CONFORMED');
 
-    if (userId) {
-      axios.delete(`https://fx.ggos3.xyz/admin/delete/${userId}`, {
+    if (userIdWaiting) {
+      axios.delete(`https://fx.ggos3.xyz/admin/delete/${userIdWaiting.id}`, {
+        withCredentials: true,
+      });
+    } else if (userIdConformed) {
+      axios.delete(`https://fx.ggos3.xyz/admin/delete/${userIdConformed.id}`, {
         withCredentials: true,
       });
     }
