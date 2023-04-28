@@ -2,7 +2,7 @@ import { Layout } from '@/components';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import axios from 'axios';
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import { useEffect, useState } from 'react';
 
 const DashboardTable = styled.table`
@@ -85,54 +85,34 @@ const getUsers = async (): Promise<UserInfo[]> => {
 const adminMainPage = () => {
   const [users, setUsers] = useState<UserInfo[]>([]);
 
-  const onClickStatus = () => {
-    const waitingUser = users.find((user) => user.status === 'WAITING');
-    const conformedUser = users.find((user) => user.status === 'CONFORMED');
+  const onClickUpdateStatus: MouseEventHandler<HTMLButtonElement> = (e) => {
+    const idToUpdate = Number(e.currentTarget.dataset.id);
+    const userToUpdate = users.find((user) => user.id === idToUpdate);
 
-    if (waitingUser) {
-      axios
-        .patch(
-          `https://fx.ggos3.xyz/admin/update/${waitingUser.id}`,
-          {
-            status: 'CONFORMED',
-          },
-          {
-            withCredentials: true,
-          }
-        )
-        .then(() => {
-          waitingUser.status = 'CONFORMED';
-        });
-    } else if (conformedUser) {
-      axios
-        .patch(
-          `https://fx.ggos3.xyz/admin/update/${conformedUser.id}`,
-          {
-            status: 'WAITING',
-          },
-          {
-            withCredentials: true,
-          }
-        )
-        .then(() => {
-          conformedUser.status = 'WAITING';
-        });
+    if (!userToUpdate) {
+      console.error(`해당 ID(${idToUpdate})를 가진 유저가 존재하지 않습니다.`);
+      return;
     }
+
+    const updatedStatus =
+      userToUpdate.status === 'WAITING' ? 'CONFORMED' : 'WAITING';
+
+    axios.patch(
+      `https://fx.ggos3.xyz/admin/update/status/${idToUpdate}`,
+      {
+        status: updatedStatus,
+      },
+      {
+        withCredentials: true,
+      }
+    );
   };
 
-  const onClickDeleteUser = () => {
-    const userIdWaiting = users.find((user) => user.status === 'WAITING');
-    const userIdConformed = users.find((user) => user.status === 'CONFORMED');
-
-    if (userIdWaiting) {
-      axios.delete(`https://fx.ggos3.xyz/admin/delete/${userIdWaiting.id}`, {
-        withCredentials: true,
-      });
-    } else if (userIdConformed) {
-      axios.delete(`https://fx.ggos3.xyz/admin/delete/${userIdConformed.id}`, {
-        withCredentials: true,
-      });
-    }
+  const onClickDeleteUser: MouseEventHandler<HTMLButtonElement> = (e) => {
+    const idToDelete = Number(e.currentTarget.dataset.id);
+    axios.delete(`https://fx.ggos3.xyz/admin/delete/${idToDelete}`, {
+      withCredentials: true,
+    });
   };
 
   useEffect(() => {
@@ -142,6 +122,7 @@ const adminMainPage = () => {
     };
     getDatas();
   }, []);
+
   return (
     <Layout>
       <DashboardTable>
@@ -169,7 +150,8 @@ const adminMainPage = () => {
               <DashboardTbodyTd>
                 {user.status === 'CONFORMED' ? '입금 완료' : '입금 대기'}
                 <ConfirmButton
-                  onClick={onClickStatus}
+                  onClick={onClickUpdateStatus}
+                  data-id={user.id}
                   style={{
                     color: user.status === 'CONFORMED' ? '#62a1f1' : '#DF013A',
                     border:
@@ -180,7 +162,9 @@ const adminMainPage = () => {
                 >
                   {user.status === 'CONFORMED' ? 'O' : 'X'}
                 </ConfirmButton>
-                <DeleteButton onClick={onClickDeleteUser}>삭제</DeleteButton>
+                <DeleteButton onClick={onClickDeleteUser} data-id={user.id}>
+                  삭제
+                </DeleteButton>
               </DashboardTbodyTd>
             </tr>
           ))}
