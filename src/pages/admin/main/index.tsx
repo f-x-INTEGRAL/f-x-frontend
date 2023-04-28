@@ -88,26 +88,35 @@ const adminMainPage = () => {
   const onClickStatus = () => {
     const waitingUser = users.find((user) => user.status === 'WAITING');
     const conformedUser = users.find((user) => user.status === 'CONFORMED');
+
     if (waitingUser) {
-      axios.patch(
-        `https://fx.ggos3.xyz/admin/update/${waitingUser.id}`,
-        {
-          status: 'CONFORMED',
-        },
-        {
-          withCredentials: true,
-        }
-      );
+      axios
+        .patch(
+          `https://fx.ggos3.xyz/admin/update/${waitingUser.id}`,
+          {
+            status: 'CONFORMED',
+          },
+          {
+            withCredentials: true,
+          }
+        )
+        .then(() => {
+          waitingUser.status = 'CONFORMED';
+        });
     } else if (conformedUser) {
-      axios.patch(
-        `https://fx.ggos3.xyz/admin/update/${conformedUser.id}`,
-        {
-          status: 'WAITING',
-        },
-        {
-          withCredentials: true,
-        }
-      );
+      axios
+        .patch(
+          `https://fx.ggos3.xyz/admin/update/${conformedUser.id}`,
+          {
+            status: 'WAITING',
+          },
+          {
+            withCredentials: true,
+          }
+        )
+        .then(() => {
+          conformedUser.status = 'WAITING';
+        });
     }
   };
 
