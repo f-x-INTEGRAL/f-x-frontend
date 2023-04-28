@@ -46,13 +46,14 @@ const ConfirmButton = styled.button`
 
 const DeleteButton = styled.button`
   margin-left: 10px;
-  width: 25px;
+  width: 50px;
   height: 25px;
   font-size: 16px;
   background: none;
   border: 1px solid #b40404;
   box-shadow: 1px 1px 5px #b40404;
   border-radius: 30%;
+  color: #b40404;
   &:hover {
     background-color: #f78181;
     transition: 0.3s;
@@ -83,15 +84,25 @@ const getUsers = async (): Promise<UserInfo[]> => {
 };
 const adminMainPage = () => {
   const [users, setUsers] = useState<UserInfo[]>([]);
-  const [paymentConfirm, setPaymentConfirm] = useState<boolean>(false);
 
   const onClickStatus = () => {
     const waitingUser = users.find((user) => user.status === 'WAITING');
+    const userId = users.find((user) => user.id);
     if (waitingUser) {
       axios.patch(
-        `https://fx.ggos3.xyz/admin/update/${waitingUser.id}`,
+        `https://fx.ggos3.xyz/admin/update/${userId}`,
         {
           status: 'CONFORMED',
+        },
+        {
+          withCredentials: true,
+        }
+      );
+    } else {
+      axios.patch(
+        `https://fx.ggos3.xyz/admin/update/${userId}`,
+        {
+          status: 'WAITING',
         },
         {
           withCredentials: true,
@@ -113,7 +124,6 @@ const adminMainPage = () => {
   useEffect(() => {
     const getDatas = async () => {
       const data = await getUsers();
-      console.log(data);
       setUsers(data);
     };
     getDatas();
@@ -147,12 +157,16 @@ const adminMainPage = () => {
                 <ConfirmButton
                   onClick={onClickStatus}
                   style={{
-                    color: paymentConfirm ? '#DF013A' : '#62a1f1',
+                    color: user.status === 'CONFORMED' ? '#62a1f1' : '#DF013A',
+                    border:
+                      user.status === 'CONFORMED'
+                        ? '1px solid #62a1f1'
+                        : '1px solid #DF013A',
                   }}
                 >
                   {user.status === 'CONFORMED' ? 'O' : 'X'}
                 </ConfirmButton>
-                <DeleteButton onClick={onClickDeleteUser}>⨉</DeleteButton>
+                <DeleteButton onClick={onClickDeleteUser}>삭제</DeleteButton>
               </DashboardTbodyTd>
             </tr>
           ))}
