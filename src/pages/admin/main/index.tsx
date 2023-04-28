@@ -88,7 +88,7 @@ const adminMainPage = () => {
   const onClickUpdateStatus = (id: number) => {
     const newStatus =
       users.find((user) => user.id === id)?.status === 'WAITING'
-        ? 'CONFIRMED'
+        ? 'CONFORMED'
         : 'WAITING';
     axios.patch(
       `https://fx.ggos3.xyz/admin/status/${id}`,
