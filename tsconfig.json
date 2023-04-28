@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "sourceMap": false,
+    // "sourceMap": false,
     "plugins": [
       {
         "name": "typescript-styled-plugin",
