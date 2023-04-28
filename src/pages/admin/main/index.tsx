@@ -45,14 +45,14 @@ const ConfirmButton = styled.button`
 `;
 
 const DeleteButton = styled.button`
-  margin-left: 10px;
+  margin-left: 55px;
   width: 50px;
   height: 25px;
   font-size: 16px;
   background: none;
   border: 1px solid #b40404;
   box-shadow: 1px 1px 5px #b40404;
-  border-radius: 30%;
+  border-radius: 5px;
   color: #b40404;
   &:hover {
     background-color: #f78181;
@@ -88,26 +88,30 @@ const adminMainPage = () => {
   const onClickStatus = () => {
     const waitingUser = users.find((user) => user.status === 'WAITING');
     const userId = users.find((user) => user.id);
-    if (waitingUser) {
-      axios.patch(
-        `https://fx.ggos3.xyz/admin/update/${userId}`,
-        {
-          status: 'CONFORMED',
-        },
-        {
-          withCredentials: true,
-        }
-      );
-    } else {
-      axios.patch(
-        `https://fx.ggos3.xyz/admin/update/${userId}`,
-        {
-          status: 'WAITING',
-        },
-        {
-          withCredentials: true,
-        }
-      );
+    if (userId !== null && userId !== undefined) {
+      const strUserId = userId.toString();
+      const intUserId = parseInt(strUserId);
+      if (waitingUser) {
+        axios.patch(
+          `https://fx.ggos3.xyz/admin/update/${intUserId}`,
+          {
+            status: 'CONFORMED',
+          },
+          {
+            withCredentials: true,
+          }
+        );
+      } else {
+        axios.patch(
+          `https://fx.ggos3.xyz/admin/update/${intUserId}`,
+          {
+            status: 'WAITING',
+          },
+          {
+            withCredentials: true,
+          }
+        );
+      }
     }
   };
 
