@@ -11,7 +11,7 @@ module.exports = withSentryConfig(
   {
     webpack: (config, options) => {
       // 소스맵을 비활성화
-      // config.devtool = false;
+      config.devtool = false;
 
       return config;
     },
@@ -32,7 +32,7 @@ module.exports = withSentryConfig(
       disableServerWebpackPlugin: true,
       disableClientWebpackPlugin: true,
       tunnelRoute: '/monitoring-tunnel',
-      // hideSourceMaps: true,
+      hideSourceMaps: true,
     },
   },
   sentryWebpackPluginOptions
