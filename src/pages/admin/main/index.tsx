@@ -10,23 +10,38 @@ const DashboardTable = styled.table`
   border-collapse: collapse;
   text-align: left;
   margin-top: 50px;
+
+  @media (max-width: 768px) {
+  }
 `;
 const DashboardThead = styled.thead`
   background-color: #b8d7ff;
+
+  @media (max-width: 768px) {
+  }
 `;
 const DashboardTheadTh = styled.th`
   padding: 15px 0 15px 15px;
   color: #abaaaa;
   font-size: 19px;
   font-weight: 400;
+
+  @media (max-width: 768px) {
+  }
 `;
 const DashboardTbody = styled.tbody`
   border-bottom: 2px solid #abaaaa;
+
+  @media (max-width: 768px) {
+  }
 `;
 const DashboardTbodyTd = styled.td`
   padding: 15px 0 15px 15px;
   color: #abaaaa;
   font-size: 18px;
+
+  @media (max-width: 768px) {
+  }
 `;
 const ConfirmButton = styled.button`
   margin-left: 10px;
@@ -42,6 +57,9 @@ const ConfirmButton = styled.button`
     transition: 0.3s;
   }
   cursor: pointer;
+
+  @media (max-width: 768px) {
+  }
 `;
 
 const DeleteButton = styled.button`
@@ -59,6 +77,8 @@ const DeleteButton = styled.button`
     transition: 0.3s;
   }
   cursor: pointer;
+  @media (max-width: 768px) {
+  }
 `;
 
 interface UserInfo {
