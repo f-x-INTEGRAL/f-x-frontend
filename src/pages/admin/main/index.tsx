@@ -19,6 +19,14 @@ const DashboardTheadTh = styled.th`
   color: #abaaaa;
   font-size: 19px;
   font-weight: 400;
+<<<<<<< HEAD
+=======
+
+  @media (max-width: 768px) {
+    writing-mode: horizontal-tb;
+    white-space: nowrap;
+  }
+>>>>>>> cf1472c (feat(admin): entry&main 반응형 추가)
 `;
 const DashboardTbody = styled.tbody`
   border-bottom: 2px solid #abaaaa;
@@ -27,6 +35,14 @@ const DashboardTbodyTd = styled.td`
   padding: 15px 0 15px 15px;
   color: #abaaaa;
   font-size: 18px;
+<<<<<<< HEAD
+=======
+
+  @media (max-width: 768px) {
+    writing-mode: horizontal-tb;
+    white-space: nowrap;
+  }
+>>>>>>> cf1472c (feat(admin): entry&main 반응형 추가)
 `;
 const ConfirmButton = styled.button`
   margin-left: 10px;
@@ -59,6 +75,12 @@ const DeleteButton = styled.button`
     transition: 0.3s;
   }
   cursor: pointer;
+<<<<<<< HEAD
+=======
+  @media (max-width: 768px) {
+    margin-left: 35px;
+  }
+>>>>>>> cf1472c (feat(admin): entry&main 반응형 추가)
 `;
 
 interface UserInfo {
@@ -84,6 +106,11 @@ const getUsers = async (): Promise<UserInfo[]> => {
 };
 const adminMainPage = () => {
   const [users, setUsers] = useState<UserInfo[]>([]);
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
 
   const onClickUpdateStatus = (id: number) => {
     const newStatus =
