@@ -10,15 +10,9 @@ const DashboardTable = styled.table`
   border-collapse: collapse;
   text-align: left;
   margin-top: 50px;
-
-  @media (max-width: 768px) {
-  }
 `;
 const DashboardThead = styled.thead`
   background-color: #b8d7ff;
-
-  @media (max-width: 768px) {
-  }
 `;
 const DashboardTheadTh = styled.th`
   padding: 15px 0 15px 15px;
@@ -27,13 +21,12 @@ const DashboardTheadTh = styled.th`
   font-weight: 400;
 
   @media (max-width: 768px) {
+    writing-mode: horizontal-tb;
+    white-space: nowrap;
   }
 `;
 const DashboardTbody = styled.tbody`
   border-bottom: 2px solid #abaaaa;
-
-  @media (max-width: 768px) {
-  }
 `;
 const DashboardTbodyTd = styled.td`
   padding: 15px 0 15px 15px;
@@ -41,6 +34,8 @@ const DashboardTbodyTd = styled.td`
   font-size: 18px;
 
   @media (max-width: 768px) {
+    writing-mode: horizontal-tb;
+    white-space: nowrap;
   }
 `;
 const ConfirmButton = styled.button`
@@ -57,9 +52,6 @@ const ConfirmButton = styled.button`
     transition: 0.3s;
   }
   cursor: pointer;
-
-  @media (max-width: 768px) {
-  }
 `;
 
 const DeleteButton = styled.button`
@@ -78,6 +70,7 @@ const DeleteButton = styled.button`
   }
   cursor: pointer;
   @media (max-width: 768px) {
+    margin-left: 35px;
   }
 `;
 
@@ -104,6 +97,11 @@ const getUsers = async (): Promise<UserInfo[]> => {
 };
 const adminMainPage = () => {
   const [users, setUsers] = useState<UserInfo[]>([]);
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
 
   const onClickUpdateStatus = (id: number) => {
     const newStatus =

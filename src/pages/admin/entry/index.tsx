@@ -7,6 +7,7 @@ import styled from '@emotion/styled';
 import Symbol from '../../../assets/images/Symbol.png';
 import { useRouter } from 'next/router';
 import { useCookies } from 'react-cookie';
+import { css } from '@emotion/react';
 
 export const EntryWrapper = styled.div`
   display: flex;
@@ -59,16 +60,41 @@ const adminEntryPage: NextPage = () => {
     <Layout>
       <EntryWrapper>
         <form onSubmit={handleSubmit}>
-          <Image src={Symbol} alt="admin_entry_logo"></Image>
+          <Image
+            src={Symbol}
+            alt="admin_entry_logo"
+            css={css`
+              position: relative;
+              left: 300px;
+              @media (max-width: 768px) {
+                width: 220px;
+                height: 190px;
+                position: relative;
+                left: 140px;
+              }
+            `}
+          ></Image>
           <MainTitle
             x45
             title={' "ADMIN에 접근하시려면 PASSWORD를 입력하세요.'}
+            css={css`
+              @media (max-width: 768px) {
+                font-size: 35px;
+                text-align: center;
+                font-weight: 500;
+              }
+            `}
           />
           <Input
             type="password"
             value={adminPass}
             onChange={onChangeAdminPass}
             placeholder="Writing admin password..."
+            css={css`
+              @media (max-width: 768px) {
+                text-align: center;
+              }
+            `}
           />
           <Button
             text="OK"
