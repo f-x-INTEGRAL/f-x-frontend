@@ -97,11 +97,6 @@ const getUsers = async (): Promise<UserInfo[]> => {
 };
 const adminMainPage = () => {
   const [users, setUsers] = useState<UserInfo[]>([]);
-  const [showModal, setShowModal] = useState(false);
-
-  const openModal = () => {
-    setShowModal(true);
-  };
 
   const onClickUpdateStatus = (id: number) => {
     const newStatus =
