@@ -19,14 +19,11 @@ const DashboardTheadTh = styled.th`
   color: #abaaaa;
   font-size: 19px;
   font-weight: 400;
-<<<<<<< HEAD
-=======
 
   @media (max-width: 768px) {
     writing-mode: horizontal-tb;
     white-space: nowrap;
   }
->>>>>>> cf1472c9c823e97daa1316962bb2771668513834
 `;
 const DashboardTbody = styled.tbody`
   border-bottom: 2px solid #abaaaa;
@@ -35,14 +32,11 @@ const DashboardTbodyTd = styled.td`
   padding: 15px 0 15px 15px;
   color: #abaaaa;
   font-size: 18px;
-<<<<<<< HEAD
-=======
 
   @media (max-width: 768px) {
     writing-mode: horizontal-tb;
     white-space: nowrap;
   }
->>>>>>> cf1472c9c823e97daa1316962bb2771668513834
 `;
 const ConfirmButton = styled.button`
   margin-left: 10px;
@@ -75,12 +69,9 @@ const DeleteButton = styled.button`
     transition: 0.3s;
   }
   cursor: pointer;
-<<<<<<< HEAD
-=======
   @media (max-width: 768px) {
     margin-left: 35px;
   }
->>>>>>> cf1472c9c823e97daa1316962bb2771668513834
 `;
 
 interface UserInfo {
@@ -106,34 +97,40 @@ const getUsers = async (): Promise<UserInfo[]> => {
 };
 const adminMainPage = () => {
   const [users, setUsers] = useState<UserInfo[]>([]);
-<<<<<<< HEAD
-=======
-  const [showModal, setShowModal] = useState(false);
 
-  const openModal = () => {
-    setShowModal(true);
-  };
->>>>>>> cf1472c9c823e97daa1316962bb2771668513834
-
-  const onClickUpdateStatus = (id: number) => {
+  const onClickUpdateStatus = async (id: number) => {
     const newStatus =
       users.find((user) => user.id === id)?.status === 'WAITING'
         ? 'CONFORMED'
         : 'WAITING';
-    axios.patch(
+    await axios.patch(
       `https://fx.ggos3.xyz/admin/update/${id}`,
       { status: newStatus },
       {
         withCredentials: true,
       }
     );
+    const updatedUsers = users.map((user) => {
+      if (user.id === id) {
+        return {
+          ...user,
+          status: newStatus,
+        };
+      } else {
+        return user;
+      }
+    });
+    setUsers(updatedUsers);
   };
 
-  const onClickDeleteUser = (e: React.MouseEvent<HTMLButtonElement>): void => {
+  const onClickDeleteUser = async (
+    e: React.MouseEvent<HTMLButtonElement>
+  ): Promise<void> => {
     const idToDelete = Number(e.currentTarget.dataset.id);
-    axios.delete(`https://fx.ggos3.xyz/admin/delete/${idToDelete}`, {
+    await axios.delete(`https://fx.ggos3.xyz/admin/delete/${idToDelete}`, {
       withCredentials: true,
     });
+    setUsers(users.filter((user) => user.id !== idToDelete));
   };
 
   useEffect(() => {
