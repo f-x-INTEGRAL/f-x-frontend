@@ -7,10 +7,7 @@ import styled from '@emotion/styled';
 import Symbol from '../../../assets/images/Symbol.png';
 import { useRouter } from 'next/router';
 import { useCookies } from 'react-cookie';
-<<<<<<< HEAD
-=======
 import { css } from '@emotion/react';
->>>>>>> cf1472c9c823e97daa1316962bb2771668513834
 
 export const EntryWrapper = styled.div`
   display: flex;
@@ -104,14 +101,11 @@ const adminEntryPage: NextPage = () => {
             type="submit"
             onClick={() => router.push('/admin/main')}
           />
-<<<<<<< HEAD
           <Button
             text="OK"
             type="submit"
             onClick={() => router.push('/admin/main')}
           />
-=======
->>>>>>> cf1472c9c823e97daa1316962bb2771668513834
         </form>
       </EntryWrapper>
     </Layout>
