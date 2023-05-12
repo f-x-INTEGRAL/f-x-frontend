@@ -25,7 +25,7 @@ export const FormContainer = styled.div`
   }
 `;
 
-export const FormTitle = styled.h1`
+export const FormTitle = styled.h2`
   display: flex;
 
   :before {
@@ -143,7 +143,31 @@ const FormPage = () => {
 
   return (
     <Layout>
-      <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
+      <MainTitle
+        title="온라인 예매가 종료 되었습니다."
+        css={css`
+          text-align: center;
+          margin-top: 270px;
+          @media (max-width: 768px) {
+            font-size: 28px;
+          }
+        `}
+      ></MainTitle>
+      <FormTitle
+        css={css`
+          margin-left: 200px;
+          @media (max-width: 768px) {
+            font-size: 16px;
+            margin-left: 30px;
+            :after {
+              content: '';
+            }
+          }
+        `}
+      >
+        본 공연은 당일 현장구매가 가능합니다 감사합니다.
+      </FormTitle>
+      {/* <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
         <FormWrapper>
           <FormContainer ref={sectionRefs[0]}>
             <MainTitle title="Reservation" />
@@ -265,7 +289,7 @@ const FormPage = () => {
             </Form>
           </FormContainer>
         </FormWrapper>
-      </form>
+      </form> */}
     </Layout>
   );
 };
