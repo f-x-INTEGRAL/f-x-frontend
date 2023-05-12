@@ -156,9 +156,17 @@ const FormPage = () => {
       <FormTitle
         css={css`
           margin-left: 200px;
-          @media (max-width: 768px) {
+          text-align: center;
+          @media (max-width: 425px) {
             font-size: 16px;
             margin-left: 30px;
+            :after {
+              content: '';
+            }
+          }
+          @media (max-width: 375px) {
+            font-size: 16px;
+            margin-left: 10px;
             :after {
               content: '';
             }
